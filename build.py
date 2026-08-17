@@ -7,7 +7,7 @@
     python build.py decks           todas las presentaciones registradas
     python build.py all             todo
     python build.py list            qué hay registrado y qué falta
-    python build.py check           que cada presentación cubra su temario
+    python build.py check           cobertura del temario y texto fuera de lienzo
 
 Los artefactos se escriben en dist/. Nada más de este archivo necesita tocarse
 al añadir un módulo: el registro vive en content/program.py.
@@ -124,6 +124,90 @@ def cmd_check():
     return problemas
 
 
+_SVG_TEXT = None
+_METRICAS = {}
+
+
+def _ancho_texto(texto, size, negrita, mono):
+    """Ancho real en unidades de lienzo, medido con las métricas de la fuente."""
+    from fontTools.ttLib import TTFont
+
+    clave = ("mono" if mono else ("bold" if negrita else "regular"))
+    if clave not in _METRICAS:
+        archivo = {
+            "regular": "figtree-latin-400-normal.woff2",
+            "bold": "figtree-latin-700-normal.woff2",
+        }.get(clave)
+        if archivo is None:      # Consolas es monoespaciada: 0.55 em por glifo
+            _METRICAS[clave] = ("mono", 0.55)
+        else:
+            f = TTFont(os.path.join(ROOT, "assets", "fonts", archivo))
+            upm = f["head"].unitsPerEm
+            cmap = f.getBestCmap()
+            hmtx = f["hmtx"]
+            _METRICAS[clave] = ("real", (cmap, hmtx, upm))
+
+    tipo, datos = _METRICAS[clave]
+    if tipo == "mono":
+        return len(texto) * size * datos
+
+    cmap, hmtx, upm = datos
+    total = 0
+    for ch in texto:
+        nombre = cmap.get(ord(ch))
+        total += hmtx[nombre][0] if nombre else int(upm * 0.5)
+    return total / float(upm) * size
+
+
+def cmd_svg():
+    """Busca texto que se sale del lienzo de un diagrama.
+
+    Un `<text>` demasiado largo no desborda la lámina: lo recorta el propio
+    viewBox del SVG, así que el PDF no lo delata y la revisión por bloques de
+    texto tampoco lo ve. El ancho se mide con las métricas reales de Figtree,
+    no con una estimación por número de caracteres.
+    """
+    global _SVG_TEXT
+    import re
+    if _SVG_TEXT is None:
+        _SVG_TEXT = re.compile(
+            r'<text x="([\d.]+)"[^>]*?font-family="([^"]*)"[^>]*?'
+            r'font-size="([\d.]+)"[^>]*?font-weight="(\d+)"[^>]*?'
+            r'text-anchor="(\w+)"[^>]*>(.*?)</text>')
+
+    LIENZO = 1120.0
+    problemas = 0
+
+    for nombre in sorted(os.listdir(os.path.join(ROOT, "engine", "diagrams"))):
+        if not nombre.startswith("mod") or not nombre.endswith(".py"):
+            continue
+        mod = importlib.import_module("engine.diagrams.%s" % nombre[:-3])
+        for fn in sorted(d for d in dir(mod) if not d.startswith("_")):
+            obj = getattr(mod, fn)
+            if not callable(obj) or getattr(obj, "__module__", "") != mod.__name__:
+                continue
+            try:
+                svg = obj()
+            except TypeError:
+                continue
+            for x, familia, size, peso, anchor, texto in _SVG_TEXT.findall(svg):
+                plano = re.sub(r"<[^>]+>", "", texto)
+                plano = plano.replace("&lt;", "<").replace("&gt;", ">")
+                ancho = _ancho_texto(plano, float(size), int(peso) >= 600,
+                                     "Consolas" in familia)
+                x = float(x)
+                fin = x + ancho if anchor == "start" else (
+                    x + ancho / 2 if anchor == "middle" else x)
+                if fin > LIENZO:
+                    problemas += 1
+                    print("  %-34s se sale %3d u : %s"
+                          % ("%s.%s" % (nombre[:-3], fn), int(fin - LIENZO),
+                             plano[:52]))
+
+    print("\n%d textos de diagrama fuera del lienzo" % problemas)
+    return problemas
+
+
 def main(argv):
     cmd = argv[0] if argv else "all"
     os.makedirs(DIST, exist_ok=True)
@@ -134,7 +218,8 @@ def main(argv):
         return
 
     if cmd == "check":
-        sys.exit(1 if cmd_check() else 0)
+        fallos = cmd_check() + cmd_svg()
+        sys.exit(1 if fallos else 0)
 
     if cmd == "syllabus":
         build_syllabus()

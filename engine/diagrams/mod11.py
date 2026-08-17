@@ -116,7 +116,8 @@ def aislamiento():
         b.append(_txt(x + 26, y + 58, d, 17, INK2, "400"))
         b.append(_txt(x + w - 26, y + 45, nota, 15, INK3, "600", "end"))
 
-    b.append(_txt(10, 314, "Añadir el aislamiento por cliente después obliga a "
-                           "migrar todo lo que ya guardaste. Es de las decisiones "
-                           "que hay que tomar el primer día.", 19, INK3, "400"))
-    return _svg(334, "".join(b))
+    b.append(_txt(10, 310, "Añadir el aislamiento por cliente después obliga a "
+                           "migrar todo lo que ya guardaste.", 19, INK3, "400"))
+    b.append(_txt(10, 334, "Es de las decisiones que hay que tomar el primer día.",
+                  19, INK3, "400"))
+    return _svg(354, "".join(b))

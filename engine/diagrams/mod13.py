@@ -272,11 +272,11 @@ def umbral():
     b.append(_rect(10, 330, 1100, 88, fill=DANGER_SOFT, stroke=DANGER, sw=2, r=12))
     b.append(_txt(38, 366, "Dos textos sin relación rara vez dan cero: pueden dar "
                            "0.6 o 0.7.", 20, INK, "700"))
-    b.append(_txt(38, 398, "Copiar «recuperamos todo lo que supere 0.75» de un "
-                           "tutorial es una de las causas más comunes de un RAG que "
-                           "devuelve basura con aparente confianza.", 18, INK2,
-                  "400"))
-    return _svg(438, "".join(b))
+    b.append(_txt(38, 396, "Copiar «recuperamos todo lo que supere 0.75» de un "
+                           "tutorial es una de las causas más", 18, INK2, "400"))
+    b.append(_txt(38, 420, "comunes de un RAG que devuelve basura con aparente "
+                           "confianza.", 18, INK2, "400"))
+    return _svg(444, "".join(b))
 
 
 def reranking():
@@ -309,8 +309,8 @@ def reranking():
     b.append(_rect(10, 248, 1100, 92, fill=ACC_SOFT, stroke=ACC, sw=2, r=12))
     b.append(_txt(38, 286, "Recuperar menos y mejor baja el costo y sube la calidad "
                            "al mismo tiempo.", 21, INK, "700"))
-    b.append(_txt(38, 318, "Es de las poquísimas optimizaciones que no tienen "
-                           "contrapartida: cuesta más por consulta que la búsqueda, "
-                           "y mucho menos que meter 50 trozos en el prompt.",
-                  18, INK2, "400"))
-    return _svg(360, "".join(b))
+    b.append(_txt(38, 316, "Es de las poquísimas optimizaciones sin contrapartida: "
+                           "cuesta más por consulta que la", 18, INK2, "400"))
+    b.append(_txt(38, 340, "búsqueda, y mucho menos que meter 50 trozos en el "
+                           "prompt.", 18, INK2, "400"))
+    return _svg(384, "".join(b))

@@ -32,11 +32,11 @@ def api_rest_http():
         b.append(_txt(174 + i * 40, y + 36, rol, 20, INK, "700"))
         b.append(_txt(174 + i * 40, y + 62, desc, 17, INK3, "400"))
 
-    b.append(_txt(10, 320, "Una API puede no ser REST. REST siempre necesita un "
-                           "transporte debajo. Cuando alguien dice «conéctate a la "
-                           "API», puede estar hablando de cualquiera de las tres.",
-                  19, INK3, "400"))
-    return _svg(342, "".join(b))
+    b.append(_txt(10, 316, "Una API puede no ser REST. REST siempre necesita un "
+                           "transporte debajo.", 19, INK3, "400"))
+    b.append(_txt(10, 342, "Cuando alguien dice «conéctate a la API», puede estar "
+                           "hablando de cualquiera de las tres.", 19, INK3, "400"))
+    return _svg(364, "".join(b))
 
 
 def pull_vs_push():

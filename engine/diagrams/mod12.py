@@ -201,8 +201,7 @@ def tres_operaciones():
 
     ops = [
         ("MAGNITUD", "¿Qué tan largo es?",
-         "Depende de cosas como la longitud del texto. Casi nunca es lo que "
-         "interesa.", ACC),
+         "Depende de la longitud del texto. Casi nunca interesa.", ACC),
         ("DISTANCIA", "¿Qué tan separadas están las puntas?",
          "En línea recta. Es sensible a la magnitud.", OK),
         ("ÁNGULO", "¿Apuntan en la misma dirección?",

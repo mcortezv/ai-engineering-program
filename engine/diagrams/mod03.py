@@ -31,10 +31,11 @@ def tokenizacion():
     b.append(_rect(10, 222, 1100, 96, fill=ACC_SOFT, stroke=ACC, sw=2, r=12))
     b.append(_txt(38, 258, "El mismo significado cuesta el doble en español.", 22,
                   INK, "700"))
-    b.append(_txt(38, 292, "Los vocabularios se entrenaron sobre todo con inglés. "
-                           "Consecuencia directa: el mismo producto es más caro de "
+    b.append(_txt(38, 288, "Los vocabularios se entrenaron sobre todo con inglés.",
+                  19, INK2, "400"))
+    b.append(_txt(38, 312, "Consecuencia directa: el mismo producto es más caro de "
                            "operar en español.", 19, INK2, "400"))
-    return _svg(336, "".join(b))
+    return _svg(348, "".join(b))
 
 
 def ventana_contexto():
