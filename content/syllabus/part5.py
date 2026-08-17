@@ -15,7 +15,7 @@ M19 = {
             "Eliminación de redundancia.",
             "Agrupamiento para selección de contexto.",
         ]),
-        "Control del estilo: qué se quiere decir con «style encoder» y cuáles son las opciones reales.",
+        "Control del estilo: las cuatro formas de fijar la voz de un sistema.",
         ("Agentes conversacionales como pipelines", [
             "Nodos y artefactos.",
             "Por qué una conversación con objetivo tiene estructura.",

@@ -15,8 +15,10 @@ los documentos finales se compilan con un comando.
 
 | Artefacto | Formato | Descripción |
 | --- | --- | --- |
-| Temario | `.docx` y `.pdf` | Documento de 105 páginas con objetivo, contenidos, enfoque didáctico, ejercicio y criterios de evaluación por módulo. |
-| Presentaciones | `.pdf` 16:9 | Una por módulo, con diagramas vectoriales y guion del instructor al final. |
+| Temario | `.docx` y `.pdf` | 105 páginas con objetivo, contenidos, enfoque didáctico, ejercicio y criterios de evaluación por módulo. |
+| Presentaciones | `.pdf` 16:9 | 20 presentaciones, 373 láminas, con 60 diagramas vectoriales. |
+
+El programa está **completo**: los veinte módulos tienen temario y presentación.
 
 Todo se escribe en `dist/`.
 
@@ -72,11 +74,17 @@ npm install
 
 ```bash
 python build.py list          # qué hay registrado y qué falta
+python build.py check         # cobertura del temario y texto fuera de lienzo
 python build.py syllabus      # el temario completo
 python build.py deck 4        # una presentación
 python build.py decks         # todas las presentaciones
 python build.py all           # todo
 ```
+
+`check` es la comprobación que conviene correr antes de subir un cambio.
+Verifica dos cosas que no se ven en el PDF: que ningún punto del temario se
+quede sin lámina que lo cubra, y que ningún texto de un diagrama se salga del
+lienzo, midiéndolo con las métricas reales de la tipografía.
 
 ---
 
