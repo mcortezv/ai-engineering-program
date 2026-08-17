@@ -702,7 +702,7 @@ M11 = {
         "Índices: qué aceleran y qué no.",
         "Por qué una base relacional gestiona mal el contexto de un sistema de AI.",
         "Bases de datos de grafos: cuando lo que importa son las relaciones.",
-        "Bases de datos vectoriales: introducción como puente al módulo 12.",
+        "Bases de datos vectoriales: qué problema resuelven que las otras no.",
         "La base de datos depende de lo que se quiera almacenar.",
     ],
     "enfoque": [
@@ -847,7 +847,7 @@ M12 = {
         "Por qué los temas relacionados quedan en posiciones cercanas.",
         "Cómo se genera un embedding: el texto pasa por un modelo.",
         "Modelos y proveedores de embeddings. Por qué no son intercambiables.",
-        "Puente con el módulo 4: embeddings internos frente a embeddings de recuperación.",
+        "Dos cosas distintas llamadas embedding: la representación interna y el vector que se almacena.",
         "Dónde se almacenan: bases de datos vectoriales.",
         "Operaciones sobre vectores: magnitud, distancia y ángulo.",
         "Por qué un embedding no se puede editar.",
