@@ -1,0 +1,6 @@
+# Generacion del temario en .docx
+python-docx>=1.1.0
+
+# Verificacion de los PDF producidos (paginas, desbordes, texto)
+pypdf>=5.0.0
+PyMuPDF>=1.24.0

@@ -1,0 +1,21 @@
+# Dependencias
+node_modules/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Intermedios del build (el HTML que se imprime a PDF)
+dist/_*.html
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp

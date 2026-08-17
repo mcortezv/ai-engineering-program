@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "simple-icons": "^16.28.0"
+  },
+  "name": "ai-engineering-program",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Logos de proveedor para los diagramas del programa.",
+  "license": "MIT"
+}

@@ -1,0 +1,198 @@
+/* Hoja de diapositivas del Programa de AI — Chrome headless --print-to-pdf.
+   Mismos tokens que hyperlabs-press/paper/print.css; lo que cambia es la
+   escala tipografica (se lee proyectado, no en la mano) y el formato de pagina.
+
+   Igual que en el temario impreso, los titulos NO llevan la regla morada
+   inferior del CSS original: el morado se usa como acento en todo lo demas. */
+
+@page { size: 338.667mm 190.5mm; margin: 0; }   /* 16:9 */
+
+:root{
+  --ink:#16161a;
+  --ink2:#3d3d46;
+  --ink3:#6d6d78;
+  --acc:#5b3bd6;
+  --acc-soft:#f1edff;
+  --hair:#d8d8e0;
+  --ok:#0f7a52;      --ok-soft:#e9f5f0;
+  --warn:#8a5a06;    --warn-soft:#fbf3e3;
+  --danger:#b91c1c;  --danger-soft:#fdecec;
+  --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+  --sans:"Figtree","Segoe UI",system-ui,sans-serif;
+  --serif:"Source Serif 4","Charter","Georgia",serif;
+}
+
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{
+  margin:0;background:#fff;color:var(--ink);
+  font-family:var(--sans);font-variant-numeric:tabular-nums;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── lamina ───────────────────────────────────────────────────────────── */
+.slide{
+  position:relative;width:338.667mm;height:190.5mm;overflow:hidden;
+  padding:17mm 20mm 15mm;display:flex;flex-direction:column;
+  break-after:page;
+}
+.slide:last-child{break-after:auto}
+
+/* pie: identidad a la izquierda, numero a la derecha, barra de avance abajo */
+.slide .foot{
+  position:absolute;left:20mm;right:20mm;bottom:7.5mm;
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--mono);font-size:8pt;color:var(--ink3);
+}
+.slide .bar{position:absolute;left:0;bottom:0;height:2.2mm;background:var(--acc)}
+
+.eyebrow{
+  font-size:10.5pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink3);margin:0 0 4mm;
+}
+h2.title{
+  font-size:30pt;font-weight:700;letter-spacing:-.022em;line-height:1.14;
+  margin:0 0 7mm;max-width:26cm;text-wrap:balance;
+}
+h2.title em{font-style:normal;color:var(--acc)}
+.sub{font-size:15pt;color:var(--ink3);line-height:1.4;margin:-4mm 0 7mm;max-width:24cm}
+/* El cuerpo se centra en el espacio que deja el titular: si no, el contenido
+   corto se pega arriba y deja media lamina vacia. */
+.body{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center}
+
+/* ── portada ──────────────────────────────────────────────────────────── */
+.cover{justify-content:center}
+.cover .mark{
+  display:inline-block;align-self:flex-start;font-weight:800;font-size:13pt;
+  letter-spacing:-.02em;color:#fff;background:var(--acc);
+  padding:2.4mm 5mm;border-radius:7px;margin-bottom:14mm;
+}
+.cover .modnum{font-family:var(--mono);font-size:11pt;color:var(--acc);
+  letter-spacing:.08em;margin:0 0 3mm;font-weight:600}
+.cover h1{font-size:46pt;font-weight:700;letter-spacing:-.03em;line-height:1.06;
+  margin:0 0 6mm;max-width:24cm;text-wrap:balance}
+.cover .tag{font-size:16pt;color:var(--ink3);line-height:1.35;max-width:21cm;margin:0}
+.cover .rule{width:34mm;height:3px;background:var(--acc);border-radius:2px;margin:8mm 0}
+.cover .meta{font-family:var(--mono);font-size:9.5pt;color:var(--ink3);line-height:1.7}
+.cover .meta b{color:var(--ink2);font-weight:600}
+
+/* ── separador interno ────────────────────────────────────────────────── */
+.section{justify-content:center;background:var(--acc)}
+.section .step{font-family:var(--mono);font-size:12pt;color:#c9b8ff;
+  letter-spacing:.1em;margin:0 0 5mm}
+.section h2{font-size:40pt;font-weight:700;color:#fff;letter-spacing:-.028em;
+  line-height:1.1;margin:0;max-width:24cm;text-wrap:balance}
+.section p{font-size:15pt;color:#ddd2ff;margin:6mm 0 0;max-width:22cm;line-height:1.45}
+.section .foot{color:#b9a6f5}
+.section .bar{background:#fff;opacity:.35}
+
+/* ── afirmacion a toda lamina ─────────────────────────────────────────── */
+.statement{justify-content:center}
+.statement blockquote{
+  margin:0;font-size:38pt;font-weight:700;letter-spacing:-.026em;line-height:1.16;
+  max-width:26cm;text-wrap:balance;
+}
+.statement blockquote em{font-style:normal;color:var(--acc)}
+.statement .after{font-size:15pt;color:var(--ink3);margin:9mm 0 0;max-width:22cm;
+  line-height:1.45}
+
+/* ── listas ───────────────────────────────────────────────────────────── */
+ul.pts{list-style:none;margin:0;padding:0}
+ul.pts>li{
+  position:relative;padding-left:9mm;margin-bottom:5.5mm;
+  font-size:17pt;line-height:1.42;max-width:25cm;
+}
+ul.pts>li::before{
+  content:"";position:absolute;left:0;top:3.4mm;
+  width:3.2mm;height:3.2mm;border-radius:50%;background:var(--acc);
+}
+ul.pts>li b,ul.pts>li strong{font-weight:700}
+ul.pts>li .n{color:var(--ink3);font-size:14pt;display:block;margin-top:1.5mm;
+  line-height:1.35}
+ul.pts.tight>li{font-size:15.5pt;margin-bottom:4mm}
+
+ol.pts{list-style:none;margin:0;padding:0;counter-reset:p}
+ol.pts>li{
+  position:relative;padding-left:11mm;margin-bottom:5.5mm;
+  font-size:17pt;line-height:1.42;max-width:25cm;counter-increment:p;
+}
+ol.pts>li::before{
+  content:counter(p) ".";position:absolute;left:0;top:0;
+  color:var(--acc);font-weight:700;font-size:16pt;
+}
+
+/* ── dos columnas ─────────────────────────────────────────────────────── */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:12mm;height:100%}
+.cols.uneven{grid-template-columns:1.15fr 1fr}
+.col h3{font-size:13pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink3);margin:0 0 5mm;padding-bottom:2.5mm;border-bottom:1px solid var(--hair)}
+.col p{font-size:15.5pt;line-height:1.44;margin:0 0 4mm}
+.col.accent h3{color:var(--acc);border-bottom-color:var(--acc)}
+
+/* ── tabla ────────────────────────────────────────────────────────────── */
+table{border-collapse:collapse;width:100%;font-size:13.5pt;text-align:left}
+th,td{border-bottom:.6px solid var(--hair);padding:3.6mm 4mm;vertical-align:top}
+th{font-size:10pt;text-transform:uppercase;letter-spacing:.09em;font-weight:700;
+  color:var(--ink3);border-bottom:1.4px solid var(--ink3);background:#fafafc}
+tbody tr:nth-child(even){background:#fbfbfd}
+td b{font-weight:700}
+td .m{font-family:var(--mono);font-size:11pt;color:var(--acc);display:block;
+  margin-top:1mm}
+
+/* ── codigo ───────────────────────────────────────────────────────────── */
+pre{
+  background:#f7f7fa;border:1px solid var(--hair);border-left:3px solid var(--acc);
+  border-radius:0 6px 6px 0;padding:6mm 7mm;margin:0;
+  font-family:var(--mono);font-size:13pt;line-height:1.62;color:var(--ink2);
+  white-space:pre;overflow:hidden;
+}
+pre b{color:var(--ink);font-weight:700}
+pre .c{color:var(--acc)}
+code{font-family:var(--mono);font-size:.9em;background:#f4f4f7;color:var(--acc);
+  padding:.4mm 1.4mm;border-radius:3px}
+
+/* ── recuadros semanticos ─────────────────────────────────────────────── */
+.box{border-left:3.5px solid var(--acc);background:var(--acc-soft);
+  border-radius:0 7px 7px 0;padding:7mm 8mm}
+.box .lab{font-size:10.5pt;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--acc);margin:0 0 4mm}
+.box p{font-size:15.5pt;line-height:1.44;margin:0 0 3.5mm}
+.box p:last-child{margin-bottom:0}
+.box.ok{border-color:var(--ok);background:var(--ok-soft)}
+.box.ok .lab{color:var(--ok)}
+.box.warn{border-color:var(--warn);background:var(--warn-soft)}
+.box.warn .lab{color:var(--warn)}
+.box.danger{border-color:var(--danger);background:var(--danger-soft)}
+.box.danger .lab{color:var(--danger)}
+.box.big p{font-size:18pt}
+
+/* tachado para el texto que se corrige */
+.wrong{text-decoration:line-through;text-decoration-thickness:1.5px;
+  color:var(--danger);text-decoration-color:var(--danger)}
+.right{color:var(--ok);font-weight:700}
+
+/* ── rejilla de tarjetas (mitos, repaso) ──────────────────────────────── */
+.grid{display:grid;gap:5mm}
+.grid.c5{grid-template-columns:repeat(5,1fr)}
+.grid.c4{grid-template-columns:repeat(4,1fr)}
+.grid.c3{grid-template-columns:repeat(3,1fr)}
+.card{border:1px solid var(--hair);border-radius:8px;padding:6mm 5mm;
+  display:flex;flex-direction:column;gap:3mm}
+.card .k{font-family:var(--mono);font-size:10pt;color:var(--acc);font-weight:600}
+.card .t{font-size:15pt;font-weight:700;line-height:1.28}
+.card .d{font-size:12.5pt;color:var(--ink3);line-height:1.38}
+.card.no{background:var(--danger-soft);border-color:#f0cccc}
+.card.no .k{color:var(--danger)}
+
+/* ── guion del instructor ─────────────────────────────────────────────── */
+.notes{padding:16mm 20mm 14mm;background:#fbfbfd}
+.notes h2{font-size:22pt;font-weight:700;margin:0 0 2mm;letter-spacing:-.02em}
+.notes .lead{font-size:12.5pt;color:var(--ink3);margin:0 0 7mm;line-height:1.45}
+.notes .rows{display:flex;flex-direction:column;gap:4mm}
+.notes .row{display:grid;grid-template-columns:22mm 1fr;gap:6mm;
+  border-top:1px solid var(--hair);padding-top:3.5mm}
+.notes .row .sn{font-family:var(--mono);font-size:11pt;color:var(--acc);font-weight:700}
+.notes .row .tx{font-size:12pt;line-height:1.48;color:var(--ink2)}
+.notes .row .tx b{color:var(--ink);font-weight:700}
+.notes .row .tx .say{display:block;margin-top:1.5mm;font-family:var(--serif);
+  font-style:italic;color:var(--ink)}

@@ -1,0 +1,331 @@
+Lo que sí cambiaría
+1. Agregaría un módulo enorme antes de hablar de APIs
+
+Yo metería un módulo llamado algo como
+
+¿Cómo razona un LLM?
+
+Porque muchas personas creen que:
+
+busca en Google
+tiene una base de datos
+recuerda todo
+ejecuta código
+piensa como humano
+
+y eso genera muchísima confusión.
+
+Yo hablaría de
+
+siguiente token
+probabilidad
+atención
+embeddings internos
+inferencia
+entrenamiento vs inferencia
+
+No muy profundo matemáticamente.
+
+Pero suficiente para que entiendan que:
+
+un LLM solo predice el siguiente token.
+
+Eso cambia completamente cómo entiendes la IA.
+
+2. Metería Prompt Engineering MUCHO antes
+
+No como
+
+"cómo escribir prompts"
+
+sino
+
+cómo habla un modelo.
+
+Por ejemplo:
+
+instrucciones
+contexto
+ejemplos (few-shot)
+delimitadores
+XML
+Markdown
+cadenas de pensamiento (explicando cuándo no pedirlas)
+salidas estructuradas
+
+Porque después cuando llegues a agentes todo tiene mucho más sentido.
+
+3. El bloque de Bases de Datos
+
+Aquí sí veo un problema conceptual.
+
+Lo planteas como
+
+DB tradicional
+
+luego grafos
+
+luego vectorial
+
+Pero en realidad son herramientas distintas.
+
+No son una evolución.
+
+No reemplazan una a otra.
+
+Yo lo presentaría como
+
+¿Qué queremos almacenar?
+
+↓
+
+Datos transaccionales
+↓
+
+Contexto
+
+↓
+
+Relaciones
+
+↓
+
+Memoria
+
+↓
+
+Documentos
+
+Y entonces explicar
+
+SQL
+Documental
+Vectorial
+Grafos
+
+Cada una resuelve un problema distinto.
+
+No una mejor que otra.
+
+4. Embeddings antes que Bases de Datos
+
+Yo invertiría el orden.
+
+Embeddings
+
+↓
+
+Vector DB
+
+Porque una Vector DB sin entender embeddings es magia.
+
+5. El módulo de Agentes
+
+Creo que está demasiado centrado en herramientas actuales.
+
+Por ejemplo
+
+MCP
+
+Skills
+
+System Prompt
+
+...
+
+Eso puede cambiar mucho en dos años.
+
+Yo lo dividiría así:
+
+¿Qué necesita un agente?
+
+- objetivo
+
+- memoria
+
+- herramientas
+
+- planificación
+
+- observación
+
+- acción
+
+- reflexión
+
+Y después decir
+
+Claude usa Skills.
+
+OpenAI usa ...
+
+MCP es un protocolo.
+
+Así el concepto dura más.
+
+El módulo de RAG
+
+Aquí sí te haría una observación importante.
+
+Hay varias partes que no son correctas.
+
+Por ejemplo esto:
+
+función de coseno porque el coseno te saca la hipotenusa y el cateto adyacente
+
+No.
+
+Eso no es lo que hace.
+
+La similitud coseno no calcula una hipotenusa.
+
+Lo que realmente mide es
+
+el ángulo entre dos vectores.
+
+Es decir
+
+cos(θ)
+
+No una distancia.
+
+De hecho dos vectores muy largos pueden tener similitud 1 aunque estén lejísimos en distancia euclidiana.
+
+Eso vale muchísimo la pena explicarlo bien porque es una de las ideas más importantes del curso.
+
+También dices
+
+la distancia euclidiana que hay entre embeddings
+
+No exactamente.
+
+Hay motores que usan
+
+Cosine Similarity
+Dot Product
+Euclidean Distance
+
+No es obligatorio usar coseno.
+
+Y la mayoría de Vector DB permiten elegir.
+
+Fine tuning
+
+Yo lo movería muchísimo antes.
+
+Porque mucha gente piensa
+
+"quiero que responda como mi empresa"
+
+↓
+
+Fine tuning.
+
+Y en realidad el orden moderno es
+
+Prompt
+
+↓
+
+Contexto
+
+↓
+
+RAG
+
+↓
+
+Herramientas
+
+↓
+
+Solo al final Fine tuning
+
+Eso rompe muchos mitos.
+
+Conceptos que faltan
+
+Yo agregaría un módulo completo de:
+
+Evaluación
+
+Muy poca gente habla de esto.
+
+¿Cómo sabes que un agente mejoró?
+
+precisión
+recall
+latencia
+costo
+satisfacción
+benchmark
+golden datasets
+evaluación automática
+evaluación humana
+
+Si no sabes medir, no puedes mejorar.
+
+Costos
+
+No solamente tokens.
+
+Sino
+
+cache
+embeddings
+retrieval
+almacenamiento
+inferencia
+imágenes
+herramientas
+
+Muchísima gente construye sistemas imposibles de pagar.
+
+Model Context Protocol
+
+Lo pondría junto con
+
+APIs
+REST
+Webhooks
+MCP
+
+para explicar
+
+todos son protocolos de comunicación.
+
+Arquitecturas reales
+
+Al final del curso.
+
+Por ejemplo
+
+ChatGPT
+
+Claude Code
+
+Cursor
+
+Perplexity
+
+Lovable
+
+Windsurf
+
+Y desarmar su arquitectura.
+
+Eso ayuda muchísimo.
+
+Observabilidad
+
+No solo LangSmith.
+
+También:
+
+trazas
+logs
+costos
+tiempo
+prompts
+herramientas ejecutadas
+errores
