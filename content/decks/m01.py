@@ -32,6 +32,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [],
         "eyebrow": "Ruta de la sesión",
         "title": "Lo que vamos a ver",
         "html": """
@@ -52,6 +53,66 @@ SLIDES = [
     {
         "kind": "section",
         "step": "01",
+        "title": "Qué es la inteligencia artificial",
+        "note": "Empecemos por delimitar la palabra, porque en el uso comercial ha "
+                "dejado de significar algo concreto.",
+    },
+
+    {
+        "kind": "content",
+        "covers": [1],
+        "eyebrow": "Delimitar el término",
+        "title": "Una palabra que en marketing ya no distingue nada",
+        "html": """
+        <div class="cols">
+          <div class="col accent">
+            <h3>Qué es, con precisión</h3>
+            <p>El conjunto de técnicas que permiten a un programa <b>resolver
+            tareas que normalmente requerirían juicio humano</b>: reconocer,
+            clasificar, predecir, generar.</p>
+            <p>La familia es antigua y muy amplia. Los modelos de lenguaje son
+            una rama reciente de ella, no su totalidad.</p>
+          </div>
+          <div class="col">
+            <h3>Qué se le llama hoy</h3>
+            <p>Casi cualquier cosa. Un filtro de fotos, una regla de negocio con
+            tres condiciones, una consulta ordenada por relevancia.</p>
+            <p>Cuando un proveedor dice «con AI», <b>no te ha dicho nada</b>
+            todavía. La pregunta útil es qué técnica hay debajo.</p>
+          </div>
+        </div>
+        <div class="box" style="margin-top:7mm">
+          <p><b>El criterio que usaremos en todo el programa:</b> no importa cómo se
+          llame. Importa si el sistema sigue una regla que alguien escribió, o una
+          que encontró él solo a partir de ejemplos.</p>
+        </div>""",
+    },
+
+    {
+        "kind": "content",
+        "covers": [1],
+        "eyebrow": "Un poco de perspectiva",
+        "title": "No es nueva: lo nuevo es que funciona",
+        "html": """
+        <ul class="pts">
+          <li><b>El término tiene setenta años.</b>
+            <span class="n">Se acuñó en los años cincuenta, y desde entonces el
+            campo ha pasado por varios ciclos de entusiasmo y decepción.</span></li>
+          <li><b>Lo que cambió no fue la idea, fueron tres cosas materiales.</b>
+            <span class="n">Muchísimos más datos disponibles, hardware capaz de
+            procesarlos en paralelo, y arquitecturas que aprovechan bien ese
+            hardware.</span></li>
+          <li><b>Por eso conviene desconfiar de las dos posturas extremas.</b>
+            <span class="n">Ni magia inminente ni humo pasajero. Es una herramienta
+            con capacidades concretas y limitaciones concretas, y este programa va
+            sobre distinguir unas de otras.</span></li>
+        </ul>""",
+    },
+
+    # ── 02 ────────────────────────────────────────────────────────────────
+    {
+        "kind": "section",
+        "step": "02",
         "title": "Tres formas de resolver un problema",
         "note": "El mismo problema, resuelto tres veces. La diferencia está en "
                 "cuánto sabes de él antes de empezar.",
@@ -59,6 +120,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [3],
         "eyebrow": "La escala completa",
         "title": "Cuánto sabes, cuánto delegas",
         "html": dg.tres_formas(),
@@ -66,6 +128,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [3],
         "eyebrow": "El caso más claro",
         "title": "Celsius a Fahrenheit no necesita una red neuronal",
         "html": """
@@ -102,6 +165,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [3],
         "eyebrow": "El precio del intercambio",
         "title": "Lo que ganas y lo que pierdes al delegar",
         "html": """
@@ -128,13 +192,14 @@ SLIDES = [
     # ── 02 ────────────────────────────────────────────────────────────────
     {
         "kind": "section",
-        "step": "02",
+        "step": "03",
         "title": "Tradicional y generativa",
         "note": "La diferencia práctica está en el tipo de salida, no en la época.",
     },
 
     {
         "kind": "content",
+        "covers": [2],
         "eyebrow": "Dos tipos de salida",
         "title": "Elegir entre opciones, o construir algo nuevo",
         "html": dg.tradicional_generativa(),
@@ -142,6 +207,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [4],
         "eyebrow": "Supervisado y no supervisado",
         "title": "Con etiquetas o sin ellas",
         "html": """
@@ -166,6 +232,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [5],
         "eyebrow": "Una precisión de vocabulario",
         "title": "Redes convolucionales: qué son y por qué no van aquí",
         "html": """
@@ -186,13 +253,14 @@ SLIDES = [
     # ── 03 ────────────────────────────────────────────────────────────────
     {
         "kind": "section",
-        "step": "03",
+        "step": "04",
         "title": "El mapa",
         "note": "Qué vamos a construir, en qué orden y por qué ese orden.",
     },
 
     {
         "kind": "content",
+        "covers": [6],
         "eyebrow": "Cinco partes, cuarenta y cuatro horas",
         "title": "Cada parte cierra una pregunta que la siguiente necesita resuelta",
         "html": """
@@ -221,6 +289,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [],
         "eyebrow": "Cierre",
         "title": "Lo que te llevas de esta sesión",
         "html": """
@@ -243,6 +312,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [],
         "eyebrow": "Ejercicio práctico",
         "title": "Clasifica tres funcionalidades reales",
         "html": """

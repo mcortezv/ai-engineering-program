@@ -40,6 +40,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [],
         "eyebrow": "Ruta de la sesión",
         "title": "Lo que vamos a ver",
         "html": """
@@ -68,6 +69,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [2],
         "eyebrow": "La respuesta concreta",
         "title": "Un parámetro es un número decimal",
         "html": dg.parametro_peso(),
@@ -75,6 +77,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [1, 2],
         "eyebrow": "Una distinción que importa",
         "title": "Son pesos, no datos",
         "html": """
@@ -103,6 +106,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [3],
         "eyebrow": "El costo de entrenar desde cero",
         "title": "Cuatro maneras de medir lo mismo",
         "html": dg.costo_entrenamiento(),
@@ -110,6 +114,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [3],
         "eyebrow": "Qué hacer con ese dato",
         "title": "El costo del que nadie habla es el otro",
         "html": """
@@ -147,6 +152,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [4],
         "eyebrow": "La pila completa",
         "title": "Quién es dueño de cada capa",
         "html": dg.ai_como_servicio(),
@@ -154,6 +160,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [4],
         "eyebrow": "El modelo de negocio",
         "title": "Estás alquilando capacidad de cómputo, medida en texto",
         "html": """
@@ -178,6 +185,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [5],
         "eyebrow": "Tres cosas que suelen confundirse",
         "title": "«Tener un modelo propio» significa tres cosas distintas",
         "html": """
@@ -215,6 +223,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [6],
         "eyebrow": "Quién fabrica modelos hoy",
         "title": "La división que importa no es por marca",
         "html": dg.proveedores(),
@@ -222,6 +231,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [6],
         "eyebrow": "Dos mundos con economías distintas",
         "title": "Por API o descargado: qué cambia de verdad",
         "html": """
@@ -258,6 +268,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [7],
         "eyebrow": "Los ejes de decisión",
         "title": "Qué preguntar antes de casarte con un modelo",
         "html": """
@@ -290,6 +301,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [8],
         "eyebrow": "Sobre las comparativas públicas",
         "title": "Un buen puesto en una tabla no predice tu resultado",
         "html": """
@@ -314,6 +326,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [],
         "eyebrow": "Cierre",
         "title": "Lo que te llevas de esta sesión",
         "html": """
@@ -340,6 +353,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [],
         "eyebrow": "Ejercicio práctico",
         "title": "Elige un modelo y defiéndelo en dos minutos",
         "html": """

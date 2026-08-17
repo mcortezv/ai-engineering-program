@@ -45,6 +45,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [],
         "eyebrow": "Ruta de la sesión",
         "title": "Lo que vamos a ver",
         "html": """
@@ -73,6 +74,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [1],
         "eyebrow": "A mano alzada",
         "title": "¿Cuáles de estas hace un modelo de lenguaje?",
         "html": """
@@ -99,6 +101,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [1],
         "eyebrow": "La frontera",
         "title": "El modelo es una pieza pequeña de un sistema grande",
         "html": dg.frontera_modelo(),
@@ -106,6 +109,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [1],
         "eyebrow": "Lo que cambia en tu trabajo",
         "title": "Todo lo de fuera es tuyo",
         "html": """
@@ -145,6 +149,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [2],
         "eyebrow": "El ciclo completo",
         "title": "Cómo una predicción se convierte en un texto",
         "html": dg.bucle_generacion(),
@@ -152,6 +157,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [3],
         "eyebrow": "Lo que devuelve una pasada",
         "title": "«el gato se subió al…»",
         "html": dg.distribucion(),
@@ -159,6 +165,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [3],
         "eyebrow": "Tres cosas que esa tabla resuelve",
         "title": "Lo que se deduce de la distribución",
         "html": """
@@ -197,6 +204,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [4],
         "eyebrow": "La idea",
         "title": "Al predecir, el modelo pondera distinto cada token anterior",
         "html": dg.atencion(),
@@ -204,6 +212,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [4],
         "eyebrow": "Lo que esto cambia al escribir un prompt",
         "title": "Tres consecuencias prácticas",
         "html": """
@@ -232,6 +241,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [5],
         "eyebrow": "De palabra a posición",
         "title": "El modelo no manipula palabras: manipula posiciones",
         "html": dg.representacion_interna(),
@@ -239,6 +249,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [5],
         "eyebrow": "Por qué importa",
         "title": "Significado convertido en números",
         "html": """
@@ -266,6 +277,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [6],
         "eyebrow": "Dos momentos distintos",
         "title": "Entrenar y usar no son la misma operación",
         "html": dg.entrenamiento_inferencia(),
@@ -289,6 +301,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [7],
         "eyebrow": "La misma tabla, tres muestreos",
         "title": "Qué hace la temperatura",
         "html": dg.temperatura(),
@@ -296,6 +309,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [7],
         "eyebrow": "Las tres perillas",
         "title": "Temperatura, top-p y top-k",
         "html": """
@@ -337,6 +351,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [8],
         "eyebrow": "La mecánica",
         "title": "Siempre hay una tabla, y siempre sale un token de ella",
         "html": dg.sin_salida_no_se(),
@@ -352,6 +367,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [8],
         "eyebrow": "Qué sí funciona",
         "title": "Cuatro formas de reducirlas",
         "sub": "Ninguna es pedirle que no invente: eso es una instrucción más "
@@ -375,6 +391,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [9],
         "eyebrow": "Un caso aparte",
         "title": "Los modelos de razonamiento",
         "html": """
@@ -395,6 +412,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [10],
         "eyebrow": "Cierre",
         "title": "Siete comportamientos que ahora se explican solos",
         "html": """
@@ -420,6 +438,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [],
         "eyebrow": "Ejercicio práctico",
         "title": "Dos partes, para la próxima sesión",
         "html": """

@@ -34,6 +34,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [],
         "eyebrow": "Ruta de la sesión",
         "title": "Lo que vamos a ver",
         "html": """
@@ -61,6 +62,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [1, 2],
         "eyebrow": "El mismo significado, dos idiomas",
         "title": "Un token no es una palabra",
         "html": dg.tokenizacion(),
@@ -68,6 +70,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [2],
         "eyebrow": "Lo que se descubre jugando con un tokenizador",
         "title": "Cuatro hallazgos que valen media sesión",
         "html": """
@@ -99,6 +102,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [3, 6],
         "eyebrow": "La aritmética que hay que saber hacer",
         "title": "De caracteres a pesos",
         "html": """
@@ -138,6 +142,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [4],
         "eyebrow": "Qué ocupa el espacio en realidad",
         "title": "La pregunta del usuario es la parte pequeña",
         "html": dg.ventana_contexto(),
@@ -145,6 +150,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [5],
         "eyebrow": "Tres situaciones distintas",
         "title": "Qué pasa cuando el contexto se llena",
         "html": dg.fallos_contexto(),
@@ -161,6 +167,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [4],
         "eyebrow": "Una aclaración que evita meses de confusión",
         "title": "La ventana de contexto no es memoria",
         "html": """
@@ -180,6 +187,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [],
         "eyebrow": "Cierre",
         "title": "Lo que te llevas de esta sesión",
         "html": """
@@ -210,6 +218,7 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [],
         "eyebrow": "Ejercicio práctico",
         "title": "Mide tu propio consumo",
         "html": """
