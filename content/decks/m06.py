@@ -158,37 +158,6 @@ SLIDES = [
         </div>""",
     },
 
-    {
-        "kind": "content", "covers": [],
-        "eyebrow": "Ejercicio práctico",
-        "title": "Seis situaciones, ¿en qué escalón está cada una?",
-        "html": """
-        <div class="grid c3">
-          <div class="card"><div class="k">01</div><div class="t">Tono</div>
-            <div class="d">«El asistente responde demasiado informal para nuestros
-            clientes.»</div></div>
-          <div class="card"><div class="k">02</div><div class="t">Política nueva</div>
-            <div class="d">«No conoce nuestra política de devoluciones, que cambió el
-            mes pasado.»</div></div>
-          <div class="card"><div class="k">03</div><div class="t">Formato</div>
-            <div class="d">«Necesitamos siempre el mismo formato de salida y a veces
-            se lo salta.»</div></div>
-          <div class="card"><div class="k">04</div><div class="t">Dato vivo</div>
-            <div class="d">«No sabe cuántas unidades hay en inventario ahora
-            mismo.»</div></div>
-          <div class="card"><div class="k">05</div><div class="t">Volumen documental</div>
-            <div class="d">«Tenemos doce mil documentos internos y necesita
-            consultarlos.»</div></div>
-          <div class="card"><div class="k">06</div><div class="t">Escala</div>
-            <div class="d">«Prompt de cuatro mil tokens con veinte ejemplos, y dos
-            millones de llamadas al mes.»</div></div>
-        </div>
-        <div class="box" style="margin-top:6mm">
-          <p>Para cada una: escalón y <b>por qué no hace falta subir más</b>. El
-          último caso es el interesante — es el único donde el escalón más alto
-          tiene un argumento económico legítimo.</p>
-        </div>""",
-    },
 ]
 
 

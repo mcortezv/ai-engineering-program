@@ -32,7 +32,7 @@ def roles():
         b.append(_txt(206, y + 34, que, 19, INK, "500"))
         b.append(_txt(206, y + 58, nota, 16, INK3, "400"))
     b.append('<path d="M 1070 52 L 1090 52 L 1090 300 L 1070 300" fill="none" '
-             'stroke="%s" stroke-width="1.5"/>' % HAIR)
+             'stroke="%s" stroke-width="1.6"/>' % HAIR)
     b.append(_txt(10, 348, "Lo estable va arriba y lo variable abajo. Esa disciplina "
                            "sirve para la calidad y, más adelante, también para el "
                            "bolsillo.", 19, INK3, "400"))
@@ -92,7 +92,7 @@ def rigor_salida():
         b.append(_txt(x + 24, 48, t, 14, color, "700", spacing="1.6"))
         b.append(_txt(x + 24, 80, como, 17, INK2, "500"))
         b.append('<line x1="%d" y1="98" x2="%d" y2="98" stroke="%s" '
-                 'stroke-width="1"/>' % (x + 24, x + 324, color))
+                 'stroke-width="1.4"/>' % (x + 24, x + 324, color))
         b.append(_txt(x + 24, 126, "QUÉ GARANTIZA", 13, INK3, "700", spacing="1.6"))
         b.append(_txt(x + 24, 156, garantiza, 21, INK, "700"))
         words, line, lines = nota.split(), "", []

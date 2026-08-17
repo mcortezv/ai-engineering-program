@@ -39,21 +39,41 @@ def find_chrome():
 
 
 def font_faces():
-    """Figtree inlineada: el PDF debe ser reproducible sin red."""
+    """Figtree inlineada, en instancias estaticas y un @font-face por peso.
+
+    Deliberadamente NO se usa la version variable de la fuente: Chrome la
+    exporta al PDF como fuente Type3, un formato en el que cada glifo es un
+    mini programa de dibujo. El resultado se ve mal definido y no escala bien.
+    Con instancias estaticas Chrome embebe una Type0/CID normal y el texto
+    queda nitido a cualquier zoom.
+    """
     faces = []
-    for style in ("normal", "italic"):
+    for peso in (400, 500, 600, 700, 800):
         for subset in ("latin", "latin-ext"):
-            path = os.path.join(FONT_DIR, "figtree-%s-wght-%s.woff2" % (subset, style))
+            path = os.path.join(FONT_DIR, "figtree-%s-%d-normal.woff2" % (subset, peso))
             if not os.path.exists(path):
                 continue
             with open(path, "rb") as fh:
                 b64 = base64.b64encode(fh.read()).decode("ascii")
             faces.append(
-                "@font-face{font-family:'Figtree';font-style:%s;font-weight:300 900;"
-                "font-display:block;src:url(data:font/woff2;base64,%s) "
-                "format('woff2-variations')}" % (style, b64))
+                "@font-face{font-family:'Figtree';font-style:normal;"
+                "font-weight:%d;font-display:block;"
+                "src:url(data:font/woff2;base64,%s) format('woff2')}" % (peso, b64))
+
+    for peso in (400, 500, 600, 700, 800):
+        for subset in ("latin", "latin-ext"):
+            path = os.path.join(FONT_DIR, "figtree-%s-%d-italic.woff2" % (subset, peso))
+            if not os.path.exists(path):
+                continue
+            with open(path, "rb") as fh:
+                b64 = base64.b64encode(fh.read()).decode("ascii")
+            faces.append(
+                "@font-face{font-family:'Figtree';font-style:italic;"
+                "font-weight:%d;font-display:block;"
+                "src:url(data:font/woff2;base64,%s) format('woff2')}" % (peso, b64))
+
     if not faces:
-        print("  aviso: Figtree no encontrada, se usará Segoe UI", file=sys.stderr)
+        print("  aviso: Figtree no encontrada, se usara Segoe UI", file=sys.stderr)
     return "\n".join(faces)
 
 
@@ -68,10 +88,11 @@ def foot(deck, index, total):
     ) % (deck["footer"], index + 1, total, pct)
 
 
-def render_slide(deck, slide, index, total):
+def render_slide(deck, slide, index, total, secciones=None):
     kind = slide["kind"]
     inner = ""
     extra_class = ""
+    secciones = secciones or []
 
     if kind == "cover":
         extra_class = "cover"
@@ -87,13 +108,31 @@ def render_slide(deck, slide, index, total):
 
     elif kind == "section":
         extra_class = "section"
-        inner = '<p class="step">%s</p><h2>%s</h2>' % (slide["step"], slide["title"])
+        # Cuál de todas las secciones es ésta, para el numeral y el avance.
+        try:
+            pos = secciones.index(index)
+        except ValueError:
+            pos = 0
+        numeral = slide.get("step", "")
+        digitos = "".join(c for c in numeral if c.isdigit())
+        kicker = ("SECCIÓN %d DE %d" % (pos + 1, len(secciones))
+                  if len(secciones) > 1 else numeral)
+        pips = "".join('<i class="%s"></i>' % ("on" if i <= pos else "")
+                       for i in range(len(secciones)))
+        inner = (
+            '<div class="secnum">%s</div>'
+            '<p class="seckicker">%s</p>'
+            '<h2>%s</h2>'
+            '<div class="secrule"></div>'
+        ) % (digitos or numeral, kicker, slide["title"])
         if slide.get("note"):
-            inner += "<p>%s</p>" % slide["note"]
+            inner += '<p class="secnote">%s</p>' % slide["note"]
+        inner += '<div class="pips">%s</div>' % pips
 
     elif kind == "statement":
         extra_class = "statement"
-        inner = "<blockquote>%s</blockquote>" % slide["text"]
+        inner = ('<div class="qrule"></div><blockquote>%s</blockquote>'
+                 % slide["text"])
         if slide.get("after"):
             inner += '<p class="after">%s</p>' % slide["after"]
 
@@ -129,14 +168,17 @@ def build(module_key):
     deck_mod = importlib.import_module("content.decks.%s" % module_key)
     deck = deck_mod.DECK
     slides = deck_mod.SLIDES
-    notes = getattr(deck_mod, "NOTES", [])
+
+    # NOTES se conserva en el archivo del deck pero NO se imprime: el guion del
+    # instructor no va en la presentacion. Si algun dia hace falta como
+    # documento aparte, el contenido ya esta escrito.
 
     with open(os.path.join(HERE, "slides.css"), encoding="utf-8") as fh:
         css = fh.read()
 
-    body = "".join(render_slide(deck, s, i, len(slides))
+    secciones = [i for i, s in enumerate(slides) if s.get("kind") == "section"]
+    body = "".join(render_slide(deck, s, i, len(slides), secciones)
                    for i, s in enumerate(slides))
-    body += render_notes(deck, notes)
 
     html = (
         '<!doctype html><html lang="es"><head><meta charset="utf-8"/>'
@@ -163,6 +205,6 @@ def build(module_key):
         raise SystemExit("Chrome no generó el PDF.")
 
     os.remove(tmp)
-    print("laminas : %d  (+%d de guion)" % (len(slides), len(notes)))
+    print("laminas : %d" % len(slides))
     print("PDF     : %s (%.1f KB)" % (pdf, os.path.getsize(pdf) / 1024))
     return pdf

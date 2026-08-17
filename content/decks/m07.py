@@ -210,26 +210,6 @@ SLIDES = [
         </ul>""",
     },
 
-    {
-        "kind": "content", "covers": [],
-        "eyebrow": "Ejercicio práctico",
-        "title": "Un chat de consola en menos de cincuenta líneas",
-        "html": """
-        <ol class="pts">
-          <li><b>Sin bibliotecas de orquestación.</b> Mantén el historial en una
-            lista y reenvíalo completo en cada turno.</li>
-          <li><b>Imprime, después de cada respuesta</b>, los tokens de entrada, los
-            de salida y el costo acumulado de la sesión con precios reales.</li>
-          <li><b>Corta el historial</b> cuando supere un límite configurable, y avisa
-            en pantalla cuando lo hagas.</li>
-          <li><b>Consume la respuesta por streaming.</b></li>
-        </ol>
-        <div class="box big" style="margin-top:6mm">
-          <p>La entrega incluye una captura tras veinte turnos y una respuesta
-          escrita a: <b>¿por qué el turno veinte cuesta tanto más que el
-          primero?</b></p>
-        </div>""",
-    },
 ]
 
 

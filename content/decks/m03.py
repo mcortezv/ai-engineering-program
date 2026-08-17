@@ -211,30 +211,11 @@ SLIDES = [
             factura.</div></div>
           <div class="card"><div class="k">07</div><div class="t">La ventana no es memoria</div>
             <div class="d">Nada persiste entre peticiones.</div></div>
-          <div class="card no"><div class="k">✓</div><div class="t">Mide, no estimes</div>
+          <div class="card no"><div class="k">CLAVE</div><div class="t">Mide, no estimes</div>
             <div class="d">El tokenizador del proveedor está a un clic.</div></div>
         </div>""",
     },
 
-    {
-        "kind": "content",
-        "covers": [],
-        "eyebrow": "Ejercicio práctico",
-        "title": "Mide tu propio consumo",
-        "html": """
-        <ol class="pts">
-          <li><b>Toma el prompt más largo que tengas en producción</b> y mídelo con
-            el tokenizador oficial del proveedor.</li>
-          <li><b>Calcula una conversación de veinte turnos</b> reenviando el
-            historial completo cada vez.
-            <span class="n">El total no es veinte veces el primero. Averigua
-            cuánto es.</span></li>
-          <li><b>Traduce el mismo texto al inglés</b>, vuelve a medirlo y anota la
-            diferencia porcentual.</li>
-          <li><b>Estima el costo mensual</b> asumiendo mil conversaciones, con los
-            precios vigentes del proveedor.</li>
-        </ol>""",
-    },
 ]
 
 

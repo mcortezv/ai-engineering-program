@@ -93,7 +93,7 @@ def crecimiento_historial():
         b.append(_txt(x + ancho / 2.0, 266, str(i + 1), 15, INK3, "500", "middle",
                       family=MONO))
     b.append('<line x1="10" y1="246" x2="1090" y2="246" stroke="%s" '
-             'stroke-width="1.5"/>' % HAIR)
+             'stroke-width="1.6"/>' % HAIR)
     b.append(_txt(550, 292, "número de turno", 16, INK3, "400", "middle"))
 
     b.append(_rect(10, 314, 1100, 84, fill=ACC_SOFT, stroke=ACC, sw=2, r=11))

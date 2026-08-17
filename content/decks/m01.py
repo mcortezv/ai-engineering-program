@@ -304,33 +304,12 @@ SLIDES = [
             de AI.</div></div>
           <div class="card"><div class="k">04</div><div class="t">Tradicional y generativa conviven</div>
             <div class="d">Lo barato filtra, lo caro solo donde hace falta.</div></div>
-          <div class="card no"><div class="k">✓</div><div class="t">Si puedes escribir la regla, escríbela</div>
+          <div class="card no"><div class="k">CLAVE</div><div class="t">Si puedes escribir la regla, escríbela</div>
             <div class="d">Es el criterio que más dinero ahorra en todo el
             programa.</div></div>
         </div>""",
     },
 
-    {
-        "kind": "content",
-        "covers": [],
-        "eyebrow": "Ejercicio práctico",
-        "title": "Clasifica tres funcionalidades reales",
-        "html": """
-        <ol class="pts">
-          <li><b>En parejas, tomen tres funcionalidades de un producto de la
-            empresa</b> y clasifiquen cada una como determinista, heurística o
-            aprendizaje automático.</li>
-          <li><b>Para cada una, escriban una frase justificando por qué NO
-            corresponde a las otras dos categorías.</b>
-            <span class="n">La justificación es el ejercicio. La clasificación
-            sola no enseña nada.</span></li>
-        </ol>
-        <div class="box big" style="margin-top:7mm">
-          <p>Casi siempre aparece alguna funcionalidad que hoy se resuelve con AI y
-          que sería <b>más barata, más rápida y más confiable</b> como heurística.
-          Encontrarla es el objetivo real del ejercicio.</p>
-        </div>""",
-    },
 ]
 
 

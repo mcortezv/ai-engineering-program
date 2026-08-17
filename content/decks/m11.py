@@ -206,33 +206,12 @@ SLIDES = [
           <div class="card"><div class="k">06</div><div class="t">Vectorial para significado</div>
             <div class="d">Buscar lo que se parece, no lo que se escribe
             igual.</div></div>
-          <div class="card no"><div class="k">✓</div><div class="t">Conviven</div>
+          <div class="card no"><div class="k">CLAVE</div><div class="t">Conviven</div>
             <div class="d">No es una evolución. Elegir una para todo es el
             error.</div></div>
         </div>""",
     },
 
-    {
-        "kind": "content", "covers": [],
-        "eyebrow": "Ejercicio práctico",
-        "title": "Mide dónde falla tu búsqueda actual",
-        "html": """
-        <ol class="pts">
-          <li><b>Escribe cinco preguntas</b> que un usuario haría en lenguaje
-            natural sobre datos que ya tienes.</li>
-          <li><b>Intenta responderlas con búsqueda por coincidencia</b> y registra
-            cuántas se resuelven bien, cuántas devuelven ruido y cuántas no
-            devuelven nada.</li>
-          <li><b>Para cada fallo, escribe por qué falló:</b> sinónimo, paráfrasis,
-            contexto implícito, o respuesta dispersa entre varios documentos.</li>
-          <li><b>Diseña el esquema de aislamiento</b> por sesión, usuario y cliente
-            para ese caso.</li>
-        </ol>
-        <div class="box" style="margin-top:6mm">
-          <p>La tabla de fallos del paso 3 es el material con el que se abre la
-          sesión sobre recuperación por significado. Guárdala.</p>
-        </div>""",
-    },
 ]
 
 

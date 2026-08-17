@@ -25,7 +25,7 @@ def tres_memorias():
     b.append(_txt(392, 30, "QUÉ ES EN REALIDAD", 14, INK3, "700", spacing="2"))
     b.append(_txt(792, 30, "DÓNDE VIVE", 14, ACC, "700", spacing="2"))
     b.append('<line x1="10" y1="42" x2="1110" y2="42" stroke="%s" '
-             'stroke-width="1.5"/>' % INK3)
+             'stroke-width="1.6"/>' % INK3)
 
     for i, (nombre, real, donde, nota) in enumerate(filas):
         y = 58 + i * 96
@@ -67,7 +67,7 @@ def estrategias_historial():
         b.append(_txt(x + 28, y + 40, nombre, 21, INK, "700"))
         b.append(_txt(x + 28, y + 70, como, 18, INK2, "400"))
         b.append('<line x1="%d" y1="%d" x2="%d" y2="%d" stroke="%s" '
-                 'stroke-width="1"/>' % (x + 28, y + 88, x + 512, y + 88, HAIR))
+                 'stroke-width="1.4"/>' % (x + 28, y + 88, x + 512, y + 88, HAIR))
         b.append(_txt(x + 28, y + 112, "QUÉ PIERDES", 13, color, "700", spacing="1.6"))
         b.append(_txt(x + 28, y + 136, pierde, 17, INK3, "400"))
     return _svg(348, "".join(b))

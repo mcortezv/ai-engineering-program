@@ -265,33 +265,11 @@ SLIDES = [
             <div class="d">Magnitud, distancia y ángulo. Preguntas distintas.</div></div>
           <div class="card"><div class="k">07</div><div class="t">No se edita</div>
             <div class="d">Cambia el texto, se regenera el vector entero.</div></div>
-          <div class="card no"><div class="k">✓</div><div class="t">El significado se vuelve operable</div>
+          <div class="card no"><div class="k">CLAVE</div><div class="t">El significado se vuelve operable</div>
             <div class="d">Eso es lo que compra todo esto.</div></div>
         </div>""",
     },
 
-    {
-        "kind": "content", "covers": [],
-        "eyebrow": "Ejercicio práctico",
-        "title": "Trabaja con vectores, todavía sin base de datos",
-        "html": """
-        <ol class="pts">
-          <li><b>Genera embeddings de quince frases:</b> cinco de un tema, cinco de
-            otro y cinco ambiguas.</li>
-          <li><b>Calcula la matriz de parecido entre todas</b> y verifica que los
-            grupos aparecen solos.</li>
-          <li><b>Redúcelas a dos dimensiones y grafícalas.</b> La imagen del
-            agrupamiento es el objetivo del ejercicio.</li>
-          <li><b>Toma dos frases que signifiquen lo mismo con palabras distintas</b>
-            y dos que compartan muchas palabras pero signifiquen cosas distintas.
-            Comprueba cuál par queda más cerca y explica por qué.</li>
-          <li><b>Repite el paso 1 con otro proveedor</b> e intenta comparar vectores
-            entre los dos. Documenta por qué el resultado no tiene sentido.</li>
-        </ol>
-        <div class="box" style="margin-top:6mm">
-          <p>El paso 5 es el que fija el aprendizaje más caro de olvidar.</p>
-        </div>""",
-    },
 ]
 
 

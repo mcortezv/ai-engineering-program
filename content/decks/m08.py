@@ -273,31 +273,11 @@ SLIDES = [
             <div class="d">Precisión, latencia y dinero, siempre juntos.</div></div>
           <div class="card"><div class="k">07</div><div class="t">Tres identificadores</div>
             <div class="d">Sesión, usuario y espacio de trabajo. Desde el día uno.</div></div>
-          <div class="card no"><div class="k">✓</div><div class="t">Olvidar se diseña</div>
+          <div class="card no"><div class="k">CLAVE</div><div class="t">Olvidar se diseña</div>
             <div class="d">No es una limitación que se sufre.</div></div>
         </div>""",
     },
 
-    {
-        "kind": "content", "covers": [],
-        "eyebrow": "Ejercicio práctico",
-        "title": "Añade memoria en tres capas",
-        "html": """
-        <ol class="pts">
-          <li><b>Corto plazo con resumen.</b> Al superar un umbral de tokens, resume
-            los mensajes antiguos con una llamada y sustitúyelos, conservando
-            intactos los últimos turnos.</li>
-          <li><b>Largo plazo.</b> Al terminar la sesión, extrae con el modelo una
-            lista de hechos sobre el usuario en formato estructurado y guárdalos
-            con fecha.</li>
-          <li><b>Persistente.</b> Al iniciar, carga esos hechos e inyéctalos.</li>
-        </ol>
-        <div class="box big" style="margin-top:6mm">
-          <p>La entrega incluye un párrafo sobre <b>qué hechos decidió guardar el
-          sistema que no debería haber guardado</b>, después de tres sesiones de
-          prueba. Ese hallazgo es el objetivo real del ejercicio.</p>
-        </div>""",
-    },
 ]
 
 

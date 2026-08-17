@@ -116,7 +116,7 @@ def problema_nxm():
             for cx, cy in clientes:
                 for sx, sy in sistemas:
                     out.append('<line x1="%d" y1="%d" x2="%d" y2="%d" stroke="%s" '
-                               'stroke-width="1" opacity=".4"/>'
+                               'stroke-width="1.4" opacity=".4"/>'
                                % (cx + 46, cy, sx - 40, sy, DANGER))
         else:
             hub = (x0 + 240, 152)
@@ -138,7 +138,7 @@ def problema_nxm():
             out.append(_txt(cx, cy + 6, "AI", 14, INK2, "700", "middle"))
         for sx, sy in sistemas:
             out.append(_rect(sx - 20, sy - 15, 40, 30, fill="#f1f1f5", stroke=HAIR,
-                             sw=1.2, r=6))
+                             sw=1.5, r=6))
         return "".join(out)
 
     b.append(_rect(10, 14, 528, 300, fill=DANGER_SOFT, stroke=DANGER, sw=2, r=12))
@@ -171,7 +171,7 @@ def primitivas_mcp():
         b.append(_txt(x + 24, 104, "LAS CONTROLA", 13, INK3, "700", spacing="1.6"))
         b.append(_txt(x + 24, 138, quien, 26, color, "700"))
         b.append('<line x1="%d" y1="158" x2="%d" y2="158" stroke="%s" '
-                 'stroke-width="1"/>' % (x + 24, x + 324, HAIR))
+                 'stroke-width="1.4"/>' % (x + 24, x + 324, HAIR))
         b.append(_txt(x + 24, 186, que, 17, INK2, "400"))
         b.append(_txt(x + 24, 214, nota, 17, color, "600"))
     b.append(_txt(560, 278, "Sin esta distinción, la tentación es meterlo todo como "
@@ -198,7 +198,7 @@ def cuatro_protocolos():
     for t, x in cols:
         b.append(_txt(x, 32, t, 13, INK3, "700", spacing="1.8"))
     b.append('<line x1="10" y1="44" x2="1110" y2="44" stroke="%s" '
-             'stroke-width="1.5"/>' % INK3)
+             'stroke-width="1.6"/>' % INK3)
     for i, (p, inicia, sinc, consume, cuando, color) in enumerate(filas):
         y = 56 + i * 58
         destacado = color == ACC

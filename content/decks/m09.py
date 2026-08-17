@@ -251,34 +251,11 @@ SLIDES = [
             <div class="d">Si llama mal, reescríbela.</div></div>
           <div class="card"><div class="k">07</div><div class="t">Capacidad ≠ procedimiento ≠ canal</div>
             <div class="d">Tres cosas distintas que conviven.</div></div>
-          <div class="card no"><div class="k">✓</div><div class="t">Lo de arriba dura</div>
+          <div class="card no"><div class="k">CLAVE</div><div class="t">Lo de arriba dura</div>
             <div class="d">Lo de abajo caduca. Por eso van separados.</div></div>
         </div>""",
     },
 
-    {
-        "kind": "content", "covers": [],
-        "eyebrow": "Ejercicio práctico",
-        "title": "Analizar uno y construir otro",
-        "html": """
-        <ol class="pts">
-          <li><b>Analiza una herramienta de AI que uses a diario.</b>
-            <span class="n">Documenta sus siete componentes con evidencia
-            observable de cada uno. ¿Es un agente, un flujo o un híbrido? ¿Por
-            qué?</span></li>
-          <li><b>Construye un agente mínimo sin frameworks</b>, con tres
-            herramientas: una de lectura, una de escritura y una de consulta
-            externa.
-            <span class="n">Obligatorio: límite duro de iteraciones, registro de
-            cada llamada con argumentos y resultado, y confirmación explícita antes
-            de cualquier acción irreversible.</span></li>
-        </ol>
-        <div class="box big" style="margin-top:6mm">
-          <p>La entrega incluye la traza de una ejecución en la que el agente
-          <b>falla y se recupera</b>. Si no falla nunca, el caso de prueba es
-          demasiado fácil.</p>
-        </div>""",
-    },
 ]
 
 

@@ -21,7 +21,7 @@ def lexico_falla():
     x = 10
     for w in consulta:
         wd = 24 + len(w) * 14
-        b.append(_rect(x, 50, wd, 48, fill="#f1f1f5", stroke=HAIR, sw=1.3, r=7))
+        b.append(_rect(x, 50, wd, 48, fill="#f1f1f5", stroke=HAIR, sw=1.5, r=7))
         b.append(_txt(x + wd / 2.0, 81, w, 20, INK2, "500", "middle"))
         x += wd + 8
 
@@ -30,7 +30,7 @@ def lexico_falla():
     x = 10
     for w in documento:
         wd = 24 + len(w) * 14
-        b.append(_rect(x, 168, wd, 48, fill=OK_SOFT, stroke=OK, sw=1.3, r=7))
+        b.append(_rect(x, 168, wd, 48, fill=OK_SOFT, stroke=OK, sw=1.5, r=7))
         b.append(_txt(x + wd / 2.0, 199, w, 20, INK, "600", "middle"))
         x += wd + 8
 
@@ -79,7 +79,7 @@ def tipos_db():
             b.append(_txt(x + 24, 90 + j * 28, ln, 20, INK, "700"))
         yy = 90 + len(lines) * 28 + 8
         b.append('<line x1="%d" y1="%d" x2="%d" y2="%d" stroke="%s" '
-                 'stroke-width="1"/>' % (x + 24, yy, x + 324, yy, color))
+                 'stroke-width="1.4"/>' % (x + 24, yy, x + 324, yy, color))
         words, line, lines = fuerte.split(), "", []
         for w in words:
             if len(line + " " + w) > 36:

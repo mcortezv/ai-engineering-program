@@ -431,30 +431,11 @@ SLIDES = [
             <div class="d">Porque se sortea un token de la tabla.</div></div>
           <div class="card"><div class="k">07</div><div class="t">Se degrada con prompts largos</div>
             <div class="d">La señal útil se diluye entre el ruido.</div></div>
-          <div class="card no"><div class="k">✓</div><div class="t">Ninguna se memoriza</div>
+          <div class="card no"><div class="k">CLAVE</div><div class="t">Ninguna se memoriza</div>
             <div class="d">Las siete salen de la operación única.</div></div>
         </div>""",
     },
 
-    {
-        "kind": "content",
-        "covers": [],
-        "eyebrow": "Ejercicio práctico",
-        "title": "Dos partes, para la próxima sesión",
-        "html": """
-        <ol class="pts">
-          <li><b>Ver la tabla con tus propios ojos.</b>
-            <span class="n">Lanza la misma frase incompleta cinco veces con temperatura 0
-            y cinco con temperatura 1, pidiendo a la API las probabilidades de los tokens
-            generados. Escribe en tres líneas qué cambió y por qué.</span></li>
-          <li><b>Provocar una invención a propósito.</b>
-            <span class="n">Pregúntale por un detalle muy específico de algo real pero
-            oscuro: una cláusula de un documento interno, la versión exacta de una
-            dependencia de tu proyecto. Registra la respuesta. Después vuelve a preguntar
-            pegando el documento real en el prompt. Contrasta las dos y explica la
-            diferencia con la mecánica de hoy.</span></li>
-        </ol>""",
-    },
 ]
 
 

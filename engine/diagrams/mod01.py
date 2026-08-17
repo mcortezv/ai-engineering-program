@@ -32,7 +32,7 @@ def tres_formas():
         for j, line in enumerate(d.split("\n")):
             b.append(_txt(x + 24, 82 + j * 26, line, 18, INK, "400"))
         b.append('<line x1="%d" y1="150" x2="%d" y2="150" stroke="%s" '
-                 'stroke-width="1"/>' % (x + 24, x + 324, HAIR))
+                 'stroke-width="1.4"/>' % (x + 24, x + 324, HAIR))
         b.append(_txt(x + 24, 178, "EJEMPLO", 13, INK3, "700", spacing="1.6"))
         b.append(_txt(x + 24, 204, ej, 17, INK2, "600"))
         b.append(_txt(x + 24, 242, quien, 16, color, "700"))

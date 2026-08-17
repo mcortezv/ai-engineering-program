@@ -56,7 +56,7 @@ def chunking():
     b.append(_txt(10, 32, "TROZOS PEQUEÑOS", 15, ACC, "700", spacing="2.2"))
     for i in range(8):
         b.append(_rect(10 + i * 138, 46, 128, 44, fill=ACC_SOFT, stroke=ACC,
-                       sw=1.3, r=6))
+                       sw=1.5, r=6))
     b.append(_txt(10, 112, "recuperación precisa · pero cada trozo puede quedar "
                            "incomprensible sin lo que había alrededor",
                   17, INK3, "400"))
@@ -64,7 +64,7 @@ def chunking():
     b.append(_txt(10, 168, "TROZOS GRANDES", 15, INK2, "700", spacing="2.2"))
     for i in range(3):
         b.append(_rect(10 + i * 372, 182, 348, 44, fill="#f1f1f5", stroke=HAIR,
-                       sw=1.3, r=6))
+                       sw=1.5, r=6))
     b.append(_txt(10, 248, "contexto de sobra · pero el vector se vuelve un promedio "
                            "difuso y recupera peor, y cada trozo mete más tokens al "
                            "prompt", 17, INK3, "400"))
@@ -72,7 +72,7 @@ def chunking():
     b.append(_txt(10, 306, "CON SOLAPAMIENTO", 15, OK, "700", spacing="2.2"))
     for i in range(5):
         x = 10 + i * 208
-        b.append(_rect(x, 320, 250, 44, fill=OK_SOFT, stroke=OK, sw=1.3, r=6))
+        b.append(_rect(x, 320, 250, 44, fill=OK_SOFT, stroke=OK, sw=1.5, r=6))
         if i:
             b.append('<rect x="%d" y="320" width="42" height="44" fill="%s" '
                      'opacity=".35"/>' % (x, OK))
@@ -86,11 +86,11 @@ def _plano(ox, oy, unidad, maxx, maxy):
     out = []
     for i in range(maxx + 1):
         out.append('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="%s" '
-                   'stroke-width="1" opacity=".55"/>'
+                   'stroke-width="1.4" opacity=".55"/>'
                    % (ox + i * unidad, oy, ox + i * unidad, oy - maxy * unidad, HAIR))
     for j in range(maxy + 1):
         out.append('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="%s" '
-                   'stroke-width="1" opacity=".55"/>'
+                   'stroke-width="1.4" opacity=".55"/>'
                    % (ox, oy - j * unidad, ox + maxx * unidad, oy - j * unidad, HAIR))
     out.append('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="%s" '
                'stroke-width="2"/>' % (ox, oy, ox + maxx * unidad, oy, INK3))
@@ -201,7 +201,7 @@ def tres_metricas():
                  ("CUÁNDO CONVIENE", 740)):
         b.append(_txt(x, 32, t, 13, INK3, "700", spacing="1.8"))
     b.append('<line x1="10" y1="44" x2="1110" y2="44" stroke="%s" '
-             'stroke-width="1.5"/>' % INK3)
+             'stroke-width="1.6"/>' % INK3)
     for i, (nombre, slug, mide, mag, cuando, color) in enumerate(m):
         y = 56 + i * 82
         if i % 2 == 1:
@@ -242,7 +242,7 @@ def umbral():
     for i in range(6):
         x = ox + i * w / 5.0
         b.append('<line x1="%.1f" y1="%d" x2="%.1f" y2="%d" stroke="%s" '
-                 'stroke-width="1.5"/>' % (x, oy, x, oy + 8, INK3))
+                 'stroke-width="1.6"/>' % (x, oy, x, oy + 8, INK3))
         b.append(_txt(x, oy + 30, "%.1f" % (0.5 + i * 0.1), 16, INK3, "400",
                       "middle", family=MONO))
 

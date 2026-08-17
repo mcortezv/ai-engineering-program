@@ -334,49 +334,25 @@ SLIDES = [
         "title": "Cuatro casos donde es la herramienta equivocada",
         "html": """
         <div class="grid c4">
-          <div class="card no"><div class="k">NO</div>
+          <div class="card no"><div class="k">NO ES</div>
             <div class="t">Buscar un registro por identificador</div>
             <div class="d">Es una consulta a la base de datos. Aquí sale más caro,
             más lento y menos exacto.</div></div>
-          <div class="card no"><div class="k">NO</div>
+          <div class="card no"><div class="k">NO ES</div>
             <div class="t">Cuando todo cabe en el contexto</div>
             <div class="d">Si son diez páginas y siempre las mismas, pegarlas es más
             simple y más confiable.</div></div>
-          <div class="card no"><div class="k">NO</div>
+          <div class="card no"><div class="k">NO ES</div>
             <div class="t">Contar o agregar</div>
             <div class="d">«¿Cuántos clientes hay en Jalisco?» no se responde
             recuperando trozos.</div></div>
-          <div class="card no"><div class="k">NO</div>
+          <div class="card no"><div class="k">NO ES</div>
             <div class="t">Datos que cambian al segundo</div>
             <div class="d">Eso es una herramienta que consulta el sistema real, no
             un índice.</div></div>
         </div>""",
     },
 
-    {
-        "kind": "content", "covers": [],
-        "eyebrow": "Ejercicio práctico",
-        "title": "Construye y evalúa, sobre documentación real",
-        "html": """
-        <ol class="pts">
-          <li><b>Indexa con dos estrategias de troceado:</b> cortes fijos sin
-            solapamiento, y cortes por estructura con solapamiento.</li>
-          <li><b>Consulta con veinte preguntas reales</b> y registra los trozos
-            recuperados <b>con sus puntajes</b>.</li>
-          <li><b>Compara las tres métricas</b> sobre esas mismas consultas.
-            Verifica si los vectores de tu modelo están normalizados y, si lo están,
-            comprueba que el orden coincide.</li>
-          <li><b>Calibra el umbral</b> con los puntajes del paso 2, en lugar de
-            copiar un número.</li>
-          <li><b>Añade reordenamiento</b> y mide el cambio en calidad y en tokens
-            enviados.</li>
-        </ol>
-        <div class="box big" style="margin-top:6mm">
-          <p>Se exige reportar <b>un caso donde el trozo correcto sí se recuperó y
-          el modelo aun así respondió mal</b>, y otro donde no se recuperó.
-          Distinguir esos dos fallos es la habilidad central del módulo.</p>
-        </div>""",
-    },
 ]
 
 

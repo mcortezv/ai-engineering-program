@@ -18,7 +18,7 @@ def tokenizacion():
         for p in piezas:
             w = 24 + len(p) * 13
             out.append(_rect(x, y, w, 48, fill=ACC_SOFT if color == ACC else "#f1f1f5",
-                             stroke=color, sw=1.3, r=6))
+                             stroke=color, sw=1.5, r=6))
             out.append(_txt(x + w / 2.0, y + 31, p.replace(" ", "·"), 18, INK,
                             "500", "middle", family=MONO))
             x += w + 7

@@ -190,17 +190,17 @@ SLIDES = [
         "title": "«Tener un modelo propio» significa tres cosas distintas",
         "html": """
         <div class="grid c3">
-          <div class="card no"><div class="k">✕ INVIABLE</div>
+          <div class="card no"><div class="k">INVIABLE</div>
             <div class="t">Entrenar un modelo base desde cero</div>
             <div class="d">Miles de GPU durante meses, un corpus a escala de internet
             y un equipo de investigación. Fuera del alcance de prácticamente
             cualquier empresa, y va a seguir estándolo.</div></div>
-          <div class="card"><div class="k">✓ POSIBLE</div>
+          <div class="card"><div class="k">POSIBLE</div>
             <div class="t">Hospedar un modelo de pesos abiertos</div>
             <div class="d">Descargas los pesos y los corres en tu infraestructura.
             El dato no sale de casa. Pagas GPU por hora, la uses o no, así que
             sale a cuenta con tráfico alto y constante.</div></div>
-          <div class="card"><div class="k">✓ POSIBLE</div>
+          <div class="card"><div class="k">POSIBLE</div>
             <div class="t">Adaptar un modelo existente</div>
             <div class="d">Partes de un modelo ya entrenado y lo ajustas con
             ejemplos propios para que se comporte como necesitas. Mucho más
@@ -346,31 +346,11 @@ SLIDES = [
             <div class="d">La pregunta de fondo es dónde puede vivir el dato.</div></div>
           <div class="card"><div class="k">07</div><div class="t">Siete ejes, no uno</div>
             <div class="d">La capacidad rara vez es el criterio que decide.</div></div>
-          <div class="card no"><div class="k">✓</div><div class="t">Mide con tus casos</div>
+          <div class="card no"><div class="k">CLAVE</div><div class="t">Mide con tus casos</div>
             <div class="d">Veinte ejemplos propios ganan a cualquier tabla.</div></div>
         </div>""",
     },
 
-    {
-        "kind": "content",
-        "covers": [],
-        "eyebrow": "Ejercicio práctico",
-        "title": "Elige un modelo y defiéndelo en dos minutos",
-        "html": """
-        <ol class="pts">
-          <li><b>Elige una funcionalidad concreta</b> que el equipo quiera construir.
-            <span class="n">Real, con usuarios y volumen estimado. Nada
-            hipotético.</span></li>
-          <li><b>Llena la tabla de siete ejes para tres modelos</b>, uno de ellos de
-            pesos abiertos.
-            <span class="n">Los precios y las capacidades se buscan en la
-            documentación oficial durante la sesión, no de memoria: cambian cada
-            pocas semanas.</span></li>
-          <li><b>Defiende tu elección en dos minutos.</b>
-            <span class="n">La única respuesta que no se acepta es «porque es el
-            mejor» sin referencia a un eje.</span></li>
-        </ol>""",
-    },
 ]
 
 

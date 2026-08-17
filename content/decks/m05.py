@@ -372,32 +372,11 @@ SLIDES = [
             <div class="d">Hay cuatro casos donde estorba.</div></div>
           <div class="card"><div class="k">07</div><div class="t">Deja salida para «no sé»</div>
             <div class="d">Si obligas a llenar, se inventa.</div></div>
-          <div class="card no"><div class="k">✓</div><div class="t">Depura con casos fijos</div>
+          <div class="card no"><div class="k">CLAVE</div><div class="t">Depura con casos fijos</div>
             <div class="d">No por impresión.</div></div>
         </div>""",
     },
 
-    {
-        "kind": "content", "covers": [],
-        "eyebrow": "Ejercicio práctico",
-        "title": "Rediseña un prompt tuyo de producción",
-        "html": """
-        <ol class="pts">
-          <li><b>Reúne diez casos de entrada reales</b> y registra la salida actual
-            de cada uno.</li>
-          <li><b>Reescribe el prompt aplicando la sesión:</b> separa roles, delimita
-            bloques, convierte lo negativo en positivo, sustituye los adjetivos
-            vacíos por criterios medibles y añade un esquema con campo para
-            abstenerse.</li>
-          <li><b>Vuelve a pasar los diez casos</b> y compara en una tabla de tres
-            columnas: caso, antes, después.</li>
-          <li><b>Mide los tokens de las dos versiones</b> y anota la diferencia.</li>
-        </ol>
-        <div class="box" style="margin-top:6mm">
-          <p>La entrega es la tabla más un párrafo explicando <b>qué cambio produjo
-          la mejora y por qué</b>, apoyándote en cómo se construye la predicción.</p>
-        </div>""",
-    },
 ]
 
 

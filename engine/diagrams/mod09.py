@@ -34,7 +34,7 @@ def siete_componentes():
     b.append(_txt(10, 30, "QUÉ NECESITA", 14, ACC, "700", spacing="2"))
     b.append(_txt(792, 30, "QUÉ FALLA SI NO ESTÁ", 14, DANGER, "700", spacing="2"))
     b.append('<line x1="10" y1="42" x2="1110" y2="42" stroke="%s" '
-             'stroke-width="1.5"/>' % INK3)
+             'stroke-width="1.6"/>' % INK3)
     for i, (nombre, que, falla) in enumerate(comp):
         y = 54 + i * 46
         if i % 2 == 1:
@@ -88,7 +88,7 @@ def bucle_agente():
         b.append('<circle cx="600" cy="%d" r="4" fill="%s"/>' % (170 + j * 32, DANGER))
         b.append(_txt(616, 176 + j * 32, ln, 18, INK2, "400"))
     b.append('<line x1="590" y1="278" x2="1082" y2="278" stroke="%s" '
-             'stroke-width="1"/>' % DANGER)
+             'stroke-width="1.4"/>' % DANGER)
     b.append(_txt(590, 306, "Sin límite duro no es un agente:", 17, DANGER, "700"))
     b.append(_txt(590, 328, "es un incidente de facturación esperando su turno.",
                   17, DANGER, "700"))
@@ -118,8 +118,12 @@ def flujo_vs_agente():
         b.append(_txt(30, y + 30, cond, 18, INK2, "400"))
         x = 844 if cual == "flujo" else 1026
         color = INK2 if cual == "flujo" else ACC
-        b.append('<circle cx="%d" cy="%d" r="11" fill="%s"/>' % (x, y + 24, color))
-        b.append(_txt(x, y + 30, "✓", 15, "#ffffff", "700", "middle"))
+        b.append('<circle cx="%d" cy="%d" r="12" fill="%s"/>' % (x, y + 24, color))
+        # Marca dibujada: Figtree no trae el glifo y Chrome metia una fuente
+        # de respaldo como Type3, que se imprime mal definida.
+        b.append('<path d="M %d %d l 3.4 3.6 l 6.2 -7" fill="none" stroke="#fff" '
+                 'stroke-width="2.4" stroke-linecap="round" '
+                 'stroke-linejoin="round"/>' % (x - 5, y + 24))
 
     y = 70 + len(filas) * 50
     b.append(_rect(10, y + 12, 1100, 62, fill=ACC_SOFT, stroke=ACC, sw=2, r=11))
@@ -157,7 +161,7 @@ def tool_skill_mcp():
         yy = 88 + len(lines) * 26 + 10
         b.append(_txt(x + 24, yy, tipo, 18, color, "700"))
         b.append('<line x1="%d" y1="%d" x2="%d" y2="%d" stroke="%s" '
-                 'stroke-width="1"/>' % (x + 24, yy + 18, x + 324, yy + 18, HAIR))
+                 'stroke-width="1.4"/>' % (x + 24, yy + 18, x + 324, yy + 18, HAIR))
         b.append(_txt(x + 24, yy + 46, "Es como…", 14, INK3, "700", spacing="1.6"))
         b.append(_txt(x + 24, yy + 74, analogia, 22, INK, "700"))
         words, line, lines = ej.split(), "", []

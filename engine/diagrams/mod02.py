@@ -27,7 +27,7 @@ def parametro_peso():
     b.append(_txt(576, 98, "70 000 000 000", 29, INK, "700", family=MONO))
     b.append(_txt(576, 126, "parámetros × 2 bytes cada uno", 18, INK3, "400"))
     b.append('<line x1="576" y1="144" x2="1082" y2="144" stroke="%s" '
-             'stroke-width="1.5"/>' % ACC)
+             'stroke-width="1.6"/>' % ACC)
     b.append(_txt(576, 184, "≈ 140 GB solo de números", 26, ACC, "700"))
 
     y = 244
@@ -107,7 +107,7 @@ def ai_como_servicio():
         b.append(_txt(36, y + 46, d, 16, "#d9ccff" if fill == ACC else INK3, "400"))
         b.append(_txt(872, y + 34, dueno, 15, dcolor, "700", spacing="1.8"))
     b.append('<line x1="854" y1="14" x2="854" y2="332" stroke="%s" '
-             'stroke-width="1.5" stroke-dasharray="5 5"/>' % HAIR)
+             'stroke-width="1.6" stroke-dasharray="5 5"/>' % HAIR)
     b.append(_txt(10, 374, "Comprar AI como servicio es comprar las dos capas de "
                            "abajo. Las tres de arriba siguen siendo tu trabajo.",
                   19, INK3, "400"))

@@ -185,7 +185,7 @@ def representacion_interna():
         b.append(_txt(x + 14, y + 6, label, 17, INK2 if color == ACC else INK3,
                       "700" if big else "400"))
     b.append('<ellipse cx="672" cy="146" rx="104" ry="84" fill="none" stroke="%s" '
-             'stroke-width="1.5" stroke-dasharray="6 5" opacity=".65"/>' % ACC)
+             'stroke-width="1.6" stroke-dasharray="6 5" opacity=".65"/>' % ACC)
 
     b.append(_txt(560, 332, "Las que significan cosas parecidas caen cerca. "
                             "Esa cercanía es lo que hace que generalice.",
@@ -264,7 +264,7 @@ def temperatura():
                      'fill="%s" opacity="%.2f"/>'
                      % (bx, 235 - h, h, ACC, 1 if j == 0 else 0.72))
         b.append('<line x1="%d" y1="236" x2="%d" y2="236" stroke="%s" '
-                 'stroke-width="1.5"/>' % (x0 + 24, x0 + 316, HAIR))
+                 'stroke-width="1.6"/>' % (x0 + 24, x0 + 316, HAIR))
         b.append(_txt(x0 + 170, 262, pie, 16, INK3, "400", "middle"))
     b.append(_txt(560, 312, "La temperatura no hace al modelo más listo: lo hace "
                             "menos predecible.", 19, INK2, "600", "middle"))

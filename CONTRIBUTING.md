@@ -137,9 +137,13 @@ diagrama, basta con `"html": dg.nombre_del_diagrama()`.
 
 ### Guion del instructor
 
-`NOTES` es una lista de páginas; cada una lleva `lead` y `rows`, y cada fila es
-`(número de lámina, texto)`. Van al final del PDF, en páginas aparte, para que
-no se proyecten.
+`NOTES` sigue en los archivos de deck pero **ya no se imprime**: el guion del
+instructor y los enunciados de ejercicio no van en la presentación. Los
+ejercicios viven en el temario, en el campo `ejercicio` de cada módulo.
+
+El contenido de `NOTES` se conserva porque está escrito y es útil; si algún día
+hace falta como documento aparte, `engine/deck.py` todavía tiene
+`render_notes()` listo.
 
 ---
 
@@ -204,6 +208,26 @@ quedarán desalineados.
 | `.docx` → `.pdf` | Word por automatización COM | Es lo único que pobla el índice con números de página reales. |
 | Presentación → HTML | Plantillas en `engine/deck.py` | — |
 | HTML → `.pdf` | Chrome headless | Word no da flexbox, grid ni color a sangre. |
+
+### Dos reglas de la tipografía que no se deben romper
+
+**Nunca uses la versión variable de Figtree.** Chrome la exporta al PDF como
+fuente Type3 —un formato donde cada glifo es un mini programa de dibujo— y el
+texto se ve mal definido, además de triplicar el peso del archivo. En
+`assets/fonts/` van instancias estáticas, una por peso y estilo, y
+`engine/deck.py` declara un `@font-face` para cada una.
+
+**No uses glifos que Figtree no tiene** (✓, ✕, flechas decorativas). Chrome mete
+una fuente de respaldo como Type3 solo para ese carácter. Si necesitas una
+marca, dibújala con un `path` en el diagrama o usa una etiqueta de texto.
+
+Para comprobarlo:
+
+```bash
+python -c "import fitz,glob; print(sum(1 for f in glob.glob('dist/*.pdf') "\n  "for p in fitz.open(f) for x in p.get_fonts(full=True) if x[2]=='Type3'))"
+```
+
+Debe imprimir `0`.
 
 La fuente se incrusta en base64 en el HTML: el PDF debe ser reproducible sin
 red.

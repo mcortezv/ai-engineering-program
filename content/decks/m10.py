@@ -232,15 +232,15 @@ SLIDES = [
         "title": "Qué no es",
         "html": """
         <div class="grid c3">
-          <div class="card no"><div class="k">NO</div>
+          <div class="card no"><div class="k">NO ES</div>
             <div class="t">No reemplaza a REST</div>
             <div class="d">La gran mayoría de estos servidores son una envoltura
             que por debajo llama a una API REST de toda la vida.</div></div>
-          <div class="card no"><div class="k">NO</div>
+          <div class="card no"><div class="k">NO ES</div>
             <div class="t">No comunica agentes entre sí</div>
             <div class="d">Es entre un host de AI y un proveedor de capacidades.
             Otra cosa es otro problema.</div></div>
-          <div class="card no"><div class="k">NO</div>
+          <div class="card no"><div class="k">NO ES</div>
             <div class="t">No da seguridad</div>
             <div class="d">Da un lugar donde ponerla. Cada servidor conectado es
             superficie de ataque nueva.</div></div>
@@ -260,25 +260,6 @@ SLIDES = [
         "html": dg.cuatro_protocolos(),
     },
 
-    {
-        "kind": "content", "covers": [],
-        "eyebrow": "Ejercicio práctico",
-        "title": "Construye un servidor de capacidades mínimo",
-        "html": """
-        <ol class="pts">
-          <li><b>Expón una capacidad de cada tipo:</b> una acción que consulte algo
-            real de tu entorno, un recurso de solo lectura con un documento de
-            referencia, y una plantilla de uso frecuente en el equipo.</li>
-          <li><b>Conéctalo a un cliente real</b> y verifica que el agente lo
-            descubre y lo usa sin configuración adicional.</li>
-        </ol>
-        <div class="box big" style="margin-top:7mm">
-          <p>La entrega responde a dos preguntas: <b>¿por qué modelaste cada
-          capacidad como acción, recurso o plantilla y no como otra cosa?</b> y
-          <b>¿qué podría hacer un atacante que controlara el texto que devuelve tu
-          herramienta?</b></p>
-        </div>""",
-    },
 ]
 
 
