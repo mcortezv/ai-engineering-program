@@ -18,6 +18,11 @@ M1 = {
             "Heurística: no se conocen todos los parámetros, pero se puede diseñar una regla razonable.",
             "Aprendizaje automático: no hay regla y se delega en el entrenamiento encontrarla.",
         ]),
+        ("Qué es una red neuronal", [
+            "Capa de entrada, capas ocultas y capa de salida.",
+            "Entrenar es ajustar el peso de las conexiones hasta que la salida acierta.",
+            "El reparto entre datos de entrenamiento y datos de prueba.",
+        ]),
         "Aprendizaje supervisado y no supervisado, en una frase cada uno.",
         "Un vistazo rápido a las redes convolucionales, y por qué este programa no va sobre ellas.",
         "Mapa del programa: qué se va a construir y en qué orden.",
@@ -54,6 +59,36 @@ M1 = {
         "escribir, y se pierde la posibilidad de leer por qué el sistema decidió lo que "
         "decidió. Todo lo que se verá después en observabilidad, en evaluación de resultados "
         "y en seguridad existe porque se hizo ese intercambio.",
+
+        ("sub", "Qué es exactamente una red neuronal"),
+
+        "Acaba de decirse que en el tercer caso la regla existe pero está codificada en "
+        "números, y conviene mostrar en el momento qué es esa cosa. Vale la pena dibujarla, "
+        "porque es la primera vez que el término aparece en el programa y arrastra mucha "
+        "mitología. Una red neuronal es una **capa de entrada**, unas **capas ocultas** y una "
+        "**capa de salida**, con conexiones entre los nodos de una capa y los de la siguiente. "
+        "Cada conexión tiene un número asociado: su peso.",
+
+        "Entrenar es ajustar esos pesos hasta que, para las entradas de los ejemplos, la salida "
+        "coincide con la respuesta que ya se conoce. Eso es todo lo que hace falta decir. Lo "
+        "que importa no es la mecánica sino la consecuencia, porque cierra el argumento del "
+        "salto anterior: **la regla acaba viviendo en el grosor de las conexiones**, y por eso "
+        "no hay una línea de código que señalar cuando el sistema se equivoca.",
+
+        "Conviene añadir aquí el reparto de los datos, que es la primera idea de evaluación "
+        "del programa y se entiende sin nada previo. Los ejemplos se dividen en dos montones. "
+        "Con el primero, del orden del setenta por ciento, se ajustan los pesos. El segundo se "
+        "aparta desde el principio y el modelo no lo ve nunca: sirve para comprobar. **Si "
+        "acierta igual en los ejemplos que nunca vio, encontró el patrón. Si solo acierta en "
+        "los que usó para entrenar, se los aprendió de memoria**, y eso no sirve para nada.",
+
+        ("box", "nota", "Hasta dónde llegar con esto", [
+            "El objetivo del bloque es que «red neuronal» deje de ser una caja negra "
+            "verbal, no enseñar aprendizaje automático. Dos láminas y diez minutos bastan.",
+            "En particular, no hace falta hablar de funciones de activación, de "
+            "retropropagación ni de descenso de gradiente. Nada de eso cambia una decisión "
+            "que la sala vaya a tomar, y el módulo tiene hora y media.",
+        ]),
 
         ("sub", "AI tradicional frente a generativa"),
 
@@ -132,6 +167,7 @@ M2 = {
         "¿Qué es un modelo de lenguaje grande?",
         "¿A qué se refieren los miles de millones de parámetros de un modelo?",
         "El costo real de entrenar un modelo desde cero: cómputo, datos, energía y agua.",
+        "Del modelo base al asistente: cómo la calificación humana de respuestas le enseña a comportarse como un chat.",
         "AI como servicio: qué se compra exactamente al pagar una API y qué sigue "
         "siendo trabajo propio.",
         "Por qué prácticamente ninguna empresa entrena su propio modelo base, y qué sí puede hacer en su lugar.",
@@ -179,6 +215,52 @@ M2 = {
         "inferencia se paga cada vez, para siempre, y ese es el número que va a aparecer en "
         "la factura. Conviene decir explícitamente que el módulo 14 se dedica entero a eso y "
         "usar esta sesión solo para dimensionar por qué existen tan pocos proveedores.",
+
+        ("sub", "Del modelo base al asistente"),
+
+        "Falta una pieza para que el objeto descrito hasta aquí se parezca al que la sala usa "
+        "todos los días, y conviene no saltársela porque explica muchísimo comportamiento "
+        "observable. Un modelo entrenado solo con el corpus de texto **no se comporta como un "
+        "chat**: continúa el texto que le pongas. Si se le escribe una pregunta, la "
+        "continuación estadísticamente más plausible puede ser otra pregunta parecida, porque "
+        "en internet las preguntas suelen venir en listas. Eso es lo que se llama un modelo "
+        "base, y hablar con él es incómodo.",
+
+        "Lo que convierte un modelo base en un asistente es una segunda etapa de "
+        "entrenamiento, mucho más corta y mucho más barata, en la que **personas califican "
+        "respuestas**: se le pide al modelo varias continuaciones para la misma entrada y se "
+        "ordenan de mejor a peor. Con esas calificaciones se vuelven a ajustar los pesos, de "
+        "modo que las respuestas parecidas a las bien puntuadas se vuelvan más probables. El "
+        "nombre técnico es *aprendizaje por refuerzo con retroalimentación humana*, y el "
+        "acrónimo que se ve en la literatura es RLHF.",
+
+        "El pago de explicarlo es inmediato, porque de esa etapa salen cosas que la sala ya ha "
+        "visto y no sabía a qué atribuir:",
+
+        ("bullets", [
+            "**Que sepa cuándo dejar de escribir.** Detenerse no es una consecuencia de "
+            "predecir texto; es un comportamiento que se calificó.",
+            "**Que responda en listas de viñetas con tanta frecuencia.** Es un formato que "
+            "los calificadores premiaron, no una propiedad del lenguaje.",
+            "**Que dos modelos igualmente capaces tengan caracteres distintos.** El corpus de "
+            "entrenamiento se parece mucho entre proveedores; lo que cambia de verdad es a "
+            "quién contrató cada uno para calificar y con qué criterios.",
+            "**Que a veces se niegue de más.** Las negativas también son un comportamiento "
+            "aprendido, y calibrarlas es difícil: pasarse por un lado produce un modelo "
+            "peligroso y por el otro uno inútil.",
+        ]),
+
+        ("box", "volatil", "Dos cuidados al contar esta parte", [
+            "Circulan cifras muy concretas sobre cuántas personas y en qué países hicieron "
+            "este trabajo para tal o cual proveedor. Casi ninguna es verificable y algunas "
+            "mezclan el etiquetado de preferencias con la moderación de contenido, que es "
+            "otro trabajo. Conviene decirlo en genérico —**miles de personas contratadas para "
+            "calificar respuestas**— y, si se quiere abrir la discusión laboral, presentarla "
+            "como discusión abierta y no como dato cerrado.",
+            "Tampoco conviene entrar en las variantes del método. Hay varias y cambian rápido. "
+            "Lo que no cambia es la idea: *el comportamiento conversacional se calificó, no se "
+            "programó.*",
+        ]),
 
         ("sub", "«¿Por qué no es posible tener un modelo propio?»"),
 
@@ -288,6 +370,34 @@ M3 = {
         "los principales proveedores y la biblioteca correspondiente en Python permite "
         "hacerlo en vivo. La sesión gana muchísimo si se proyecta un tokenizador y se pegan "
         "frases que la sala proponga.",
+
+        ("sub", "Antes del tokenizador: la lista es cerrada"),
+
+        "Hay un paso previo que suele saltarse y que es el que hace clic. Antes de mostrar "
+        "cómo se parte una palabra, conviene plantear la tensión en voz alta: preguntar a la "
+        "sala cuántas piezas distintas cree que hacen falta para escribir cualquier texto en "
+        "español. Las respuestas típicas son «infinitas» o cifras muy grandes, y las dos son "
+        "equivocadas por el mismo motivo.",
+
+        "Las combinaciones posibles de letras sí son astronómicas, pero **el vocabulario de un "
+        "modelo es una lista cerrada**, escrita una sola vez antes de entrenar y fija después. "
+        "Un vocabulario típico ronda las **cincuenta mil piezas**; los modelos más grandes, "
+        "con varios idiomas y lenguajes de programación dentro, llegan al orden de las "
+        "**doscientas cincuenta mil**. Nada más. Todo el lenguaje escrito de la cultura humana "
+        "se representa recombinando esas piezas.",
+
+        "El ejemplo que mejor funciona para abrir es una palabra larga que contenga otra "
+        "palabra dentro: *satisfacción* se parte en piezas y una de ellas es *acción*, que es "
+        "una pieza por derecho propio y aparece igual dentro de muchas otras palabras. Eso "
+        "explica de un golpe por qué las piezas no coinciden con las sílabas ni con las "
+        "palabras, y por qué la lista puede ser pequeña y cubrirlo todo.",
+
+        ("box", "nota", "Un número que conviene no confundir", [
+            "El tamaño del vocabulario —decenas de miles de piezas— **no** es el número de "
+            "dimensiones del modelo ni su número de parámetros. Son tres magnitudes distintas "
+            "y se mezclan con muchísima frecuencia. Aquí solo hace falta la primera: cuántas "
+            "piezas distintas existen.",
+        ]),
 
         ("sub", "Los cuatro descubrimientos que hay que provocar"),
 
@@ -458,30 +568,40 @@ M4 = {
         "el sistema lo llama muchas veces seguidas, añadiendo cada vez el token elegido al "
         "final de la entrada.",
 
-        "Conviene ejecutarlo en el pizarrón con una frase incompleta, por ejemplo *«el "
-        "gato se subió al»*, y escribir a mano una distribución plausible:",
+        "El mejor arranque no es una definición sino un acertijo. Se escribe *«el gato "
+        "maúlla y el perro…»* en el pizarrón y se pide en voz alta la palabra que falta: la "
+        "sala contesta *ladra* al unísono. Conviene recoger dos o tres alternativas que "
+        "también encajarían —*corre*, *se asusta*, *también*— para dejar visto que la "
+        "gramática admitía varias y que aun así todo el mundo eligió la misma. **Esa frase es "
+        "el hilo del resto del módulo**: reaparece en el bucle de generación, en la tabla de "
+        "probabilidades, en la atención y en la temperatura. Usar una sola de principio a fin "
+        "ahorra media hora de reexplicación.",
+
+        "Sobre esa misma frase se ejecuta la operación en el pizarrón, escribiendo a mano una "
+        "distribución plausible:",
 
         ("code",
-         "tejado      0.31\n"
-         "sofá        0.22\n"
-         "árbol       0.14\n"
-         "coche       0.07\n"
-         "escritorio  0.04\n"
-         "...         (y así para los ~100 000 tokens restantes)"),
+         "ladra    0.61\n"
+         "gruñe    0.12\n"
+         "corre    0.07\n"
+         "se       0.05\n"
+         "también  0.04\n"
+         "maúlla   0.01\n"
+         "...      (y así para los ~100 000 tokens restantes)"),
 
         "Tres observaciones que hay que hacer explícitas sobre esa tabla, porque cada una "
         "resuelve una confusión distinta:",
 
         ("numbers", [
             "**La lista incluye el vocabulario entero.** Todos los tokens reciben una "
-            "probabilidad, incluso los absurdos. La mayoría reciben valores minúsculos pero "
-            "no cero, y eso importa: significa que cualquier continuación es posible, solo "
-            "que improbable.",
+            "probabilidad, incluso los absurdos. La fila que hay que señalar con el dedo es "
+            "la última: *maúlla* también tiene su número, diminuto y distinto de cero. Cualquier "
+            "continuación es posible, solo que improbable.",
             "**El modelo no elige.** El modelo entrega la distribución. Quien elige es el "
             "código de muestreo que hay encima, y sus reglas son la temperatura, el top-p y "
             "el top-k. Esa separación es la que hace que esos tres parámetros dejen de ser "
             "magia.",
-            "**No hay plan.** El modelo no sabía que iba a decir «tejado» cuando "
+            "**No hay plan.** El modelo no sabía que iba a decir «ladra» cuando "
             "empezó la frase, ni sabe qué va a decir después. Cada token se decide con lo "
             "que hay escrito hasta ese momento y nada más.",
         ]),
@@ -494,16 +614,17 @@ M4 = {
         ("sub", "Atención, sin álgebra"),
 
         "La atención es el mecanismo que permite que, al calcular la probabilidad del "
-        "siguiente token, el modelo pondere de forma distinta cada token anterior. En una "
-        "frase como *«la llave que compré ayer en la ferretería no abre»*, al "
-        "procesar «abre» el modelo pondera mucho «llave» y poco "
-        "«ayer».",
+        "siguiente token, el modelo pondere de forma distinta cada token anterior. Aquí se "
+        "recupera el acertijo del arranque, porque ya traía la respuesta dentro: **la sala "
+        "resolvió la frase mirando dos palabras de seis**, *maúlla* y *gato*, y ni siquiera "
+        "las más cercanas al hueco. Nadie leyó las seis con el mismo cuidado.",
 
         "La regla de impartición aquí es dura y conviene respetarla: **cero matrices, cero "
         "query-key-value, cero softmax.** El público objetivo incluye personas no técnicas y "
-        "el detalle no aporta nada a las decisiones que van a tomar. La analogía suficiente "
-        "es la de leer una frase larga y volver la vista atrás a las palabras que importan "
-        "para entender la última.",
+        "el detalle no aporta nada a las decisiones que van a tomar. Lo que sí conviene "
+        "decir, porque es la mecánica completa y no lleva una sola fórmula, son tres pasos: "
+        "*se parte de la última palabra escrita, se buscan hacia atrás las que más tienen "
+        "que ver con ella, y de esa mezcla sale la siguiente.*",
 
         "Lo que sí hay que extraer, porque tiene consecuencias directas de diseño:",
 

@@ -42,6 +42,8 @@ SLIDES = [
           <li><b>Tres formas de resolver un problema</b> — determinista, heurística
             y aprendizaje automático, con el mismo problema resuelto tres
             veces.</li>
+          <li><b>Qué es una red neuronal</b> — capas, pesos, y cómo se comprueba
+            que encontró un patrón en lugar de memorizar los ejemplos.</li>
           <li><b>Tradicional frente a generativa</b> — la diferencia está en el tipo
             de salida, y las dos conviven.</li>
           <li><b>Supervisado y no supervisado</b> — en una frase cada uno.</li>
@@ -165,6 +167,22 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [4],
+        "eyebrow": "Lo que se delegó, dibujado",
+        "title": "Una red neuronal es esto",
+        "html": dg.red_neuronal(),
+    },
+
+    {
+        "kind": "content",
+        "covers": [4],
+        "eyebrow": "Cómo se sabe que aprendió algo",
+        "title": "Se entrena con unos ejemplos y se comprueba con otros",
+        "html": dg.entrenar_probar(),
+    },
+
+    {
+        "kind": "content",
         "covers": [3],
         "eyebrow": "El precio del intercambio",
         "title": "Lo que ganas y lo que pierdes al delegar",
@@ -207,7 +225,7 @@ SLIDES = [
 
     {
         "kind": "content",
-        "covers": [4],
+        "covers": [5],
         "eyebrow": "Supervisado y no supervisado",
         "title": "Con etiquetas o sin ellas",
         "html": """
@@ -232,7 +250,7 @@ SLIDES = [
 
     {
         "kind": "content",
-        "covers": [5],
+        "covers": [6],
         "eyebrow": "Una precisión de vocabulario",
         "title": "Redes convolucionales: qué son y por qué no van aquí",
         "html": """
@@ -260,7 +278,7 @@ SLIDES = [
 
     {
         "kind": "content",
-        "covers": [6],
+        "covers": [7],
         "eyebrow": "Cinco partes, cuarenta y cuatro horas",
         "title": "Cada parte cierra una pregunta que la siguiente necesita resuelta",
         "html": """
@@ -320,18 +338,29 @@ NOTES = [
             ("2", "Es la frase que ordena la sesión. Dila antes de cualquier "
                   "definición: sitúa la AI dentro de algo que la sala ya hace, en "
                   "lugar de presentarla como territorio ajeno."),
-            ("5", "<b>Resuelve el mismo problema tres veces en el pizarrón.</b> El "
+            ("8", "<b>Resuelve el mismo problema tres veces en el pizarrón.</b> El "
                   "spam funciona muy bien porque las tres versiones son creíbles. "
                   "No pases al diagrama hasta que las tres estén escritas."),
-            ("7", "El salto interesante es el tercero. Nómbralo explícitamente: lo "
-                  "que se delega es el diseño de la regla. Si la sala se lleva una "
-                  "sola frase de la sesión, que sea esta."),
-            ("8", "Aquí se siembra la justificación de media Parte IV. No lo "
-                  "desarrolles: basta con que quede la deuda planteada."),
-            ("11", "Cinco minutos y seguir. La función de esta lámina es evitar que "
+            ("10", "El salto interesante es el tercero. Nómbralo explícitamente: lo "
+                   "que se delega es el diseño de la regla. Si la sala se lleva una "
+                   "sola frase de la sesión, que sea esta."),
+            ("11", "<b>Dibuja las capas en el pizarrón antes de proyectar el "
+                   "diagrama</b> y pregunta dónde queda la regla. La respuesta "
+                   "—en el grosor de las conexiones— remata la lámina anterior. "
+                   "<span class='say'>«La regla existe. Lo que no existe es una "
+                   "línea de código que señalar cuando falla.»</span> "
+                   "No entres en funciones de activación ni en gradientes: no "
+                   "cambian ninguna decisión que esta sala vaya a tomar."),
+            ("12", "El reparto es la primera idea de evaluación del programa y "
+                   "conviene plantarla con cuidado. Lo que importa no es el setenta "
+                   "contra el treinta, sino la distinción entre encontrar el patrón "
+                   "y aprenderse los ejemplos de memoria."),
+            ("13", "Aquí se siembra la justificación de media Parte IV. No lo "
+                   "desarrolles: basta con que quede la deuda planteada."),
+            ("17", "Cinco minutos y seguir. La función de esta lámina es evitar que "
                    "alguien salga creyendo que «AI» y «modelo de lenguaje» son "
                    "sinónimos, no enseñar visión por computadora."),
-            ("13", "Dedica los últimos quince minutos al mapa. Reduce mucho la "
+            ("19", "Dedica los últimos quince minutos al mapa. Reduce mucho la "
                    "ansiedad de «¿y esto cómo se paga?» en la sesión tres."),
         ],
     },

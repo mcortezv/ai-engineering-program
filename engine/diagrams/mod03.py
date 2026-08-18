@@ -108,3 +108,49 @@ def fallos_contexto():
                   20, INK, "700", "middle"))
     return _svg(326, "".join(b))
 
+
+def vocabulario_finito():
+    """El vocabulario es una lista cerrada, y cada pieza es un número."""
+    b = [DEFS]
+    b.append(_txt(10, 34, "UNA PALABRA, LAS PIEZAS QUE LA FORMAN Y SU NÚMERO EN LA "
+                          "LISTA", 15, INK3, "700", spacing="2.2"))
+
+    b.append(_rect(10, 50, 250, 58, fill="#ffffff", stroke=HAIR, sw=1.5, r=9))
+    b.append(_txt(135, 88, "satisfacción", 23, INK, "600", "middle"))
+    b.append(_arrow(270, 79, 316, 79, INK3, 2))
+
+    piezas = [("sat", "13 802"), ("is", "271"), ("f", "69"), ("acción", "9 402")]
+    x = 332
+    for pieza, indice in piezas:
+        w = 44 + len(pieza) * 15
+        b.append(_rect(x, 50, w, 58, fill=ACC_SOFT, stroke=ACC, sw=1.5, r=9))
+        b.append(_txt(x + w / 2.0, 88, pieza, 21, INK, "600", "middle",
+                      family=MONO))
+        b.append(_txt(x + w / 2.0, 138, indice, 19, ACC, "700", "middle",
+                      family=MONO))
+        x += w + 16
+
+    b.append(_txt(332, 176, "Lo que entra al modelo son esos cuatro números. Las "
+                            "letras se quedan fuera.", 18, INK2, "400"))
+    b.append(_txt(332, 202, "«acción» es una pieza por sí sola, y por eso aparece "
+                            "dentro de otras palabras.", 18, INK3, "400"))
+
+    b.append(_rect(10, 234, 540, 132, fill="#ffffff", stroke=HAIR, sw=1.5, r=12))
+    b.append(_txt(38, 270, "LAS COMBINACIONES DE LETRAS SON CASI INFINITAS", 14,
+                  INK3, "700", spacing="1.8"))
+    b.append(_txt(38, 306, "El vocabulario no lo es.", 24, INK, "700"))
+    b.append(_txt(38, 340, "Es una lista cerrada, fijada una vez antes de entrenar.",
+                  18, INK2, "400"))
+
+    b.append(_rect(570, 234, 540, 132, fill=ACC_SOFT, stroke=ACC, sw=2, r=12))
+    b.append(_txt(598, 270, "CUÁNTAS PIEZAS TIENE ESA LISTA", 14, ACC, "700",
+                  spacing="1.8"))
+    b.append(_txt(598, 310, "~50 000", 27, ACC, "700", family=MONO))
+    b.append(_txt(598, 340, "un vocabulario típico", 17, INK2, "400"))
+    b.append(_txt(852, 310, "~256 000", 27, ACC, "700", family=MONO))
+    b.append(_txt(852, 340, "los modelos más grandes", 17, INK2, "400"))
+
+    b.append(_txt(560, 410, "Todo el lenguaje escrito, partido en unas decenas de "
+                            "miles de piezas que se repiten.", 20, INK, "700",
+                  "middle"))
+    return _svg(430, "".join(b))

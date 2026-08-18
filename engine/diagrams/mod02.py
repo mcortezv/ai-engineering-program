@@ -152,3 +152,60 @@ def proveedores():
                   19, INK3, "400", "middle"))
     return _svg(386, "".join(b))
 
+
+
+# ---------------------------------------------------------------------------
+
+
+def comportamiento_aprendido():
+    """Del modelo base al asistente: qué añade la calificación humana."""
+    b = [DEFS]
+    y0, h = 44, 262
+
+    def marco(x, etiqueta, sub, color, fill):
+        out = [_rect(x, y0, 340, h, fill=fill, stroke=color, sw=2, r=13)]
+        out.append(_txt(x + 26, y0 + 36, etiqueta, 15, color, "700", spacing="2"))
+        out.append(_txt(x + 26, y0 + 62, sub, 17, INK3, "400"))
+        return out
+
+    def pregunta(x, y):
+        return [_rect(x + 26, y, 288, 40, fill=PAPER, stroke=HAIR, sw=1.5, r=8),
+                _txt(x + 40, y + 27, "«¿Cuál es la capital de Francia?»", 16, INK,
+                     "500")]
+
+    # ── modelo base ────────────────────────────────────────────────────────
+    b += marco(10, "MODELO BASE", "solo continúa el texto", INK3, "#ffffff")
+    b += pregunta(10, 124)
+    for i, linea in enumerate(["¿Cuál es la capital de Italia?",
+                              "¿Cuál es la capital de Perú?",
+                              "¿Cuál es la capital de…"]):
+        b.append(_txt(50, 200 + i * 26, linea, 16, INK2 if i < 2 else INK3, "400"))
+    b.append(_txt(36, 288, "no responde: sigue el patrón", 16, DANGER, "700"))
+
+    # ── calificación humana ────────────────────────────────────────────────
+    b += marco(390, "CALIFICACIÓN HUMANA", "personas puntúan respuestas", ACC,
+               "#ffffff")
+    respuestas = [("«París.»", "1", OK), ("«Creo que podría ser París.»", "2", INK3),
+                  ("«¿Cuál es la capital de…»", "3", DANGER)]
+    for i, (txt, n, color) in enumerate(respuestas):
+        y = 126 + i * 52
+        b.append(_rect(416, y, 288, 42, fill="#ffffff", stroke=HAIR, sw=1.5, r=8))
+        b.append(_txt(436, y + 28, txt, 16, INK2, "500"))
+        b.append('<circle cx="682" cy="%d" r="14" fill="%s"/>' % (y + 21, color))
+        b.append(_txt(682, y + 27, n, 16, "#ffffff", "700", "middle"))
+    b.append(_txt(416, 288, "de mejor a peor, millones de veces", 16, ACC, "700"))
+
+    # ── asistente ──────────────────────────────────────────────────────────
+    b += marco(770, "ASISTENTE", "responde y se detiene", ACC, ACC_SOFT)
+    b += pregunta(770, 124)
+    b.append(_rect(796, 186, 288, 62, fill="#ffffff", stroke=ACC, sw=2, r=8))
+    b.append(_txt(940, 226, "«París.»", 24, ACC, "700", "middle"))
+    b.append(_txt(796, 288, "y ahí se detiene", 16, ACC, "700"))
+
+    b.append(_arrow(356, 175, 384, 175, ACC, 2.5))
+    b.append(_arrow(736, 175, 764, 175, ACC, 2.5))
+
+    b.append(_txt(560, 348, "Nadie programó ese comportamiento: se calificaron "
+                            "respuestas hasta que apareció.", 20, INK, "700",
+                  "middle"))
+    return _svg(374, "".join(b))

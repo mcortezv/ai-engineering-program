@@ -140,6 +140,14 @@ SLIDES = [
     },
 
     {
+        "kind": "content",
+        "covers": [4],
+        "eyebrow": "Un acertijo, antes de cualquier explicación",
+        "title": "Termina la frase",
+        "html": dg.acertijo(),
+    },
+
+    {
         "kind": "statement",
         "text": "Recibe una secuencia de tokens y produce una <em>probabilidad para "
                 "cada token posible</em> del vocabulario.",
@@ -159,7 +167,7 @@ SLIDES = [
         "kind": "content",
         "covers": [3],
         "eyebrow": "Lo que devuelve una pasada",
-        "title": "«el gato se subió al…»",
+        "title": "«el gato maúlla y el perro…»",
         "html": dg.distribucion(),
     },
 
@@ -179,7 +187,7 @@ SLIDES = [
             reglas son la temperatura, el top-p y el top-k, y las controlas tú desde
             la petición.</span></li>
           <li><b>No hay plan.</b>
-            <span class="n">No sabía que iba a decir «tejado» cuando empezó la frase, ni
+            <span class="n">No sabía que iba a decir «ladra» cuando empezó la frase, ni
             sabe qué va a decir después. Cada token se decide con lo que hay escrito
             hasta ese momento.</span></li>
         </ol>""",
@@ -205,8 +213,8 @@ SLIDES = [
     {
         "kind": "content",
         "covers": [4],
-        "eyebrow": "La idea",
-        "title": "Al predecir, el modelo pondera distinto cada token anterior",
+        "eyebrow": "El acertijo, visto por dentro",
+        "title": "El modelo hace eso: pondera distinto cada palabra anterior",
         "html": dg.atencion(),
     },
 
@@ -242,7 +250,7 @@ SLIDES = [
     {
         "kind": "content",
         "covers": [5],
-        "eyebrow": "De palabra a posición",
+        "eyebrow": "Un eje, dos ejes, cientos",
         "title": "El modelo no manipula palabras: manipula posiciones",
         "html": dg.representacion_interna(),
     },
@@ -250,21 +258,15 @@ SLIDES = [
     {
         "kind": "content",
         "covers": [5],
-        "eyebrow": "Por qué importa",
-        "title": "Significado convertido en números",
-        "html": """
-        <ul class="pts">
-          <li><b>Ese espacio no lo diseñó nadie.</b>
-            <span class="n">Salió del entrenamiento. Nadie puede decir qué significa la
-            dimensión 412, y aun así el conjunto ordena el significado con
-            consistencia.</span></li>
-          <li><b>La cercanía es lo que hace que generalice.</b>
-            <span class="n">Como «gato» y «felino» caen cerca, lo que el modelo aprendió
-            sobre uno le sirve para el otro sin haberlo visto escrito.</span></li>
-          <li><b>Es un paso interno, no una salida.</b>
-            <span class="n">Estos números viven dentro del cómputo. No se guardan, no se
-            devuelven y no se consultan desde fuera.</span></li>
-        </ul>""",
+        "eyebrow": "Lo que se puede hacer con eso",
+        "title": "Las palabras se pueden sumar y restar",
+        "html": dg.aritmetica_vectores() + """
+        <div class="box" style="margin-top:6mm">
+          <p><b>Nadie diseñó ese espacio y nadie puede decir qué mide la dimensión
+          412.</b> Salió del entrenamiento, y aun así ordena el significado con
+          consistencia. Todo esto ocurre dentro del cómputo: estos números no se
+          guardan, no se devuelven en la respuesta y no se consultan desde fuera.</p>
+        </div>""",
     },
 
     # ── 05 ────────────────────────────────────────────────────────────────
@@ -441,7 +443,7 @@ SLIDES = [
 
 NOTES = [
     {
-        "lead": "Módulo 4 · Cómo razona un LLM — láminas 1 a 14.",
+        "lead": "Módulo 4 · Cómo razona un LLM — láminas 1 a 15.",
         "rows": [
             ("2", "Abre por la promesa. La sesión resuelve una tensión, no expone un "
                   "temario."),
@@ -454,36 +456,62 @@ NOTES = [
                     "<span class='say'>«Un modelo no busca ni ejecuta código, pero un "
                     "sistema construido alrededor de un modelo sí puede hacer ambas "
                     "cosas.»</span>"),
-            ("11", "Recorre el diagrama con el dedo, paso por paso, y detente en la "
+            ("10", "<b>No proyectes la lámina todavía.</b> Escribe «el gato maúlla y "
+                   "el perro…» en el pizarrón y pide la palabra en voz alta. La sala "
+                   "contesta «ladra» al unísono. Recoge dos o tres alternativas que "
+                   "también encajarían —«corre», «se asusta»— y solo entonces revela "
+                   "la lámina. Esta frase es el hilo de todo el módulo: reaparece en "
+                   "el bucle, en la tabla de probabilidades, en la atención y en la "
+                   "temperatura. "
+                   "<span class='say'>«Resolvieron la frase mirando dos palabras, no "
+                   "seis. El modelo hace exactamente eso.»</span>"),
+            ("12", "Recorre el diagrama con el dedo, paso por paso, y detente en la "
                    "flecha de retorno: ahí es donde la gente entiende que un párrafo "
                    "son cientos de pasadas."),
-            ("12", "Además de proyectarla, escribe dos o tres filas a mano en el "
-                   "pizarrón. Ver aparecer los números uno a uno es lo que hace clic."),
-            ("13", "El tercer punto —no hay plan— genera resistencia. Insiste: de él "
+            ("13", "Además de proyectarla, escribe dos o tres filas a mano en el "
+                   "pizarrón. Ver aparecer los números uno a uno es lo que hace clic. "
+                   "La fila que hay que señalar con el dedo es la última: «maúlla» "
+                   "también tiene su número, diminuto y distinto de cero."),
+            ("14", "El tercer punto —no hay plan— genera resistencia. Insiste: de él "
                    "se deduce casi todo lo demás."),
-            ("14", "Analogía del río. Si alguien la repite después con sus palabras, "
+            ("15", "Analogía del río. Si alguien la repite después con sus palabras, "
                    "el concepto quedó."),
         ],
     },
     {
-        "lead": "Láminas 15 a 29.",
+        "lead": "Láminas 16 a 33.",
         "rows": [
-            ("16", "<b>Regla dura: cero matrices, cero query-key-value, cero softmax.</b> "
-                   "El diagrama de alturas es suficiente. El detalle matemático no "
-                   "cambia ninguna decisión que esta sala vaya a tomar."),
-            ("19", "Pregunta antes de avanzar: «¿por qué creen que el modelo generaliza "
-                   "a palabras que casi no vio?». La respuesta —cercanía en ese "
-                   "espacio— sale sola con el diagrama delante."),
-            ("22", "Enlaza con algo que ya vivieron: por qué el mismo prompt en un chat "
-                   "da respuestas distintas cada vez."),
-            ("24", "Diez minutos bastan. Las tres perillas se explican solas porque la "
+            ("17", "<b>Regla dura: cero matrices, cero query-key-value, cero "
+                   "softmax.</b> El diagrama de alturas es suficiente; el detalle "
+                   "matemático no cambia ninguna decisión que esta sala vaya a tomar. "
+                   "Lo que sí conviene decir es la secuencia de los tres pasos de "
+                   "abajo: se parte de la última palabra, se buscan hacia atrás las "
+                   "que más tienen que ver con ella, y de esa mezcla sale la "
+                   "siguiente. Ese es todo el mecanismo que hace falta."),
+            ("20", "Construye el primer eje en el pizarrón antes de proyectar: pide "
+                   "que coloquen «gato», «servidor» y «veterinario» sobre una sola "
+                   "línea. Después añade el segundo y deja que descubran que «bebé» "
+                   "rompe el primero. La pregunta que remata el bloque: «¿por qué "
+                   "creen que el modelo generaliza a palabras que casi no vio?». Con "
+                   "el diagrama delante, la respuesta sale sola."),
+            ("21", "Lee las tres operaciones en voz alta y compruébalas con la sala. "
+                   "La del país y la capital es la que más impresiona, y sirve para "
+                   "insistir en que dentro no hay una tabla de capitales: la relación "
+                   "está en la geometría. No prometas que las cuentas salen exactas, "
+                   "porque no siempre salen; lo que importa es que la dirección apunta "
+                   "al vecindario correcto."),
+            ("26", "Enlaza con algo que ya vivieron: por qué el mismo prompt en un "
+                   "chat da respuestas distintas cada vez. La tercera columna es la "
+                   "que cierra el círculo: con la temperatura alta vuelve a salir "
+                   "«maúlla», la opción que la sala descartó en la lámina 10."),
+            ("27", "Diez minutos bastan. Las tres perillas se explican solas porque la "
                    "tabla lleva media hora en la conversación."),
-            ("26", "<b>Núcleo del módulo.</b> Deja el diagrama en pantalla y pregunta "
+            ("29", "<b>Núcleo del módulo.</b> Deja el diagrama en pantalla y pregunta "
                    "qué falta en él. La respuesta que buscas es la caja de abajo: no "
                    "hay una tercera salida."),
-            ("28", "Menciona el costo y la latencia con orden de magnitud, sin cifras "
+            ("32", "Menciona el costo y la latencia con orden de magnitud, sin cifras "
                    "cerradas: cambian cada pocos meses."),
-            ("29", "<b>No la proyectes de entrada.</b> Constrúyela con la sala en el "
+            ("33", "<b>No la proyectes de entrada.</b> Constrúyela con la sala en el "
                    "pizarrón y revélala al final para comparar. Si pueden derivar las "
                    "siete solos, el módulo cumplió."),
         ],

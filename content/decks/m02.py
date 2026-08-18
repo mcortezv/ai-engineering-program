@@ -142,6 +142,41 @@ SLIDES = [
         </div>""",
     },
 
+    {
+        "kind": "content",
+        "covers": [4],
+        "eyebrow": "La etapa que falta",
+        "title": "Un modelo recién entrenado no se comporta como un chat",
+        "html": dg.comportamiento_aprendido(),
+    },
+
+    {
+        "kind": "content",
+        "covers": [4],
+        "eyebrow": "Lo que se explica solo con esto",
+        "title": "Cuatro cosas que no vienen del texto, vienen de la calificación",
+        "html": """
+        <div class="grid c4">
+          <div class="card"><div class="k">01</div><div class="t">Sabe cuándo parar</div>
+            <div class="d">Detenerse no se deduce de predecir texto. Es un
+            comportamiento que alguien premió.</div></div>
+          <div class="card"><div class="k">02</div><div class="t">Responde en viñetas</div>
+            <div class="d">Un formato que los calificadores puntuaron alto, no una
+            propiedad del lenguaje.</div></div>
+          <div class="card"><div class="k">03</div><div class="t">Cada modelo tiene carácter</div>
+            <div class="d">El texto de entrenamiento se parece entre proveedores. Lo
+            que cambia es quién calificó y con qué criterio.</div></div>
+          <div class="card"><div class="k">04</div><div class="t">A veces se niega de más</div>
+            <div class="d">Las negativas también se aprendieron. Calibrarlas es de
+            las cosas más difíciles de hacer bien.</div></div>
+        </div>
+        <div class="box" style="margin-top:7mm">
+          <p><b>Es la respuesta corta a por qué no todos los modelos se sienten
+          igual.</b> Dos modelos con capacidad equivalente pueden ser muy distintos
+          de usar, y esa diferencia no aparece en ninguna tabla comparativa.</p>
+        </div>""",
+    },
+
     # ── 03 ────────────────────────────────────────────────────────────────
     {
         "kind": "section",
@@ -152,7 +187,7 @@ SLIDES = [
 
     {
         "kind": "content",
-        "covers": [4],
+        "covers": [5],
         "eyebrow": "La pila completa",
         "title": "Quién es dueño de cada capa",
         "html": dg.ai_como_servicio(),
@@ -160,7 +195,7 @@ SLIDES = [
 
     {
         "kind": "content",
-        "covers": [4],
+        "covers": [5],
         "eyebrow": "El modelo de negocio",
         "title": "Estás alquilando capacidad de cómputo, medida en texto",
         "html": """
@@ -185,7 +220,7 @@ SLIDES = [
 
     {
         "kind": "content",
-        "covers": [5],
+        "covers": [6],
         "eyebrow": "Tres cosas que suelen confundirse",
         "title": "«Tener un modelo propio» significa tres cosas distintas",
         "html": """
@@ -223,7 +258,7 @@ SLIDES = [
 
     {
         "kind": "content",
-        "covers": [6],
+        "covers": [7],
         "eyebrow": "Quién fabrica modelos hoy",
         "title": "La división que importa no es por marca",
         "html": dg.proveedores(),
@@ -231,7 +266,7 @@ SLIDES = [
 
     {
         "kind": "content",
-        "covers": [6],
+        "covers": [7],
         "eyebrow": "Dos mundos con economías distintas",
         "title": "Por API o descargado: qué cambia de verdad",
         "html": """
@@ -268,7 +303,7 @@ SLIDES = [
 
     {
         "kind": "content",
-        "covers": [7],
+        "covers": [8],
         "eyebrow": "Los ejes de decisión",
         "title": "Qué preguntar antes de casarte con un modelo",
         "html": """
@@ -301,7 +336,7 @@ SLIDES = [
 
     {
         "kind": "content",
-        "covers": [8],
+        "covers": [9],
         "eyebrow": "Sobre las comparativas públicas",
         "title": "Un buen puesto en una tabla no predice tu resultado",
         "html": """
@@ -375,26 +410,36 @@ NOTES = [
             ("9", "El giro del módulo. La sala llega interesada en el número "
                   "espectacular; sácalos de ahí y llévalos al número que sí van a "
                   "pagar."),
+            ("10", "<b>Lee el panel del medio en voz alta antes de explicar nada.</b> "
+                   "Que un modelo recién entrenado conteste una pregunta con otra "
+                   "pregunta parecida suele sorprender, y es la mejor puerta de "
+                   "entrada. "
+                   "<span class='say'>«El comportamiento conversacional no se "
+                   "programó: se calificó.»</span>"),
+            ("11", "Aquí es donde la sala conecta el mecanismo con cosas que ya ha "
+                   "vivido. Deja que digan ellos qué otras rarezas creen que salen de "
+                   "esta etapa. Evita las cifras concretas de cuántas personas y en "
+                   "qué países: casi ninguna es verificable."),
         ],
     },
     {
         "lead": "Láminas 11 a 20.",
         "rows": [
-            ("11", "Recorre la pila de abajo arriba y detente en la línea de "
+            ("13", "Recorre la pila de abajo arriba y detente en la línea de "
                    "propiedad. La pregunta que quieres provocar: «¿entonces qué "
                    "estamos comprando exactamente?»."),
-            ("13", "<b>Lámina clave para conversaciones con dirección.</b> El "
+            ("15", "<b>Lámina clave para conversaciones con dirección.</b> El "
                    "«queremos nuestro propio modelo» aparece en todas las empresas. "
                    "Que salgan sabiendo separar las tres opciones evita meses de "
                    "trabajo mal dirigido."),
-            ("15", "Los logos son para orientar, no para memorizar. Di explícitamente "
+            ("17", "Los logos son para orientar, no para memorizar. Di explícitamente "
                    "que la lista caduca y que lo que no caduca es el eje: "
                    "¿el dato puede salir de tu infraestructura?"),
-            ("18", "Si hay tiempo, abre la documentación de precios de dos "
+            ("20", "Si hay tiempo, abre la documentación de precios de dos "
                    "proveedores en vivo y compárala. Ver que los números no "
                    "coinciden con lo que la gente recordaba es más persuasivo que "
                    "advertirlo."),
-            ("19", "Insiste en el cierre: veinte casos propios. Es la misma "
+            ("21", "Insiste en el cierre: veinte casos propios. Es la misma "
                    "disciplina que van a necesitar para cualquier decisión técnica "
                    "del resto del programa."),
         ],

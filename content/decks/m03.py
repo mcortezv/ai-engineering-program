@@ -62,6 +62,14 @@ SLIDES = [
 
     {
         "kind": "content",
+        "covers": [1],
+        "eyebrow": "La lista de la que sale todo",
+        "title": "El lenguaje se parte en piezas, y las piezas están numeradas",
+        "html": dg.vocabulario_finito(),
+    },
+
+    {
+        "kind": "content",
         "covers": [1, 2],
         "eyebrow": "El mismo significado, dos idiomas",
         "title": "Un token no es una palabra",
@@ -225,21 +233,27 @@ NOTES = [
         "rows": [
             ("2", "Abre con la afirmación desnuda y deja que incomode un momento "
                   "antes de explicarla."),
-            ("5", "<b>Proyecta un tokenizador y pega frases que proponga la sala.</b> "
+            ("5", "<b>Empieza por la tensión, no por el diagrama.</b> Pregunta "
+                  "cuántas piezas distintas creen que hacen falta para escribir "
+                  "cualquier texto en español. Casi siempre contestan «infinitas» o "
+                  "una cifra enorme. "
+                  "<span class='say'>«Son unas cincuenta mil. Con eso se escribe "
+                  "todo.»</span> Esa sorpresa sostiene el resto del bloque."),
+            ("6", "<b>Proyecta un tokenizador y pega frases que proponga la sala.</b> "
                   "La lámina sirve de apoyo, pero la sesión gana muchísimo si lo "
                   "ven funcionar en vivo con sus propias palabras. Pide un nombre "
                   "propio raro y un número largo."),
-            ("6", "Los cuatro hallazgos salen solos del tokenizador. Deja que los "
+            ("7", "Los cuatro hallazgos salen solos del tokenizador. Deja que los "
                   "descubran ellos antes de leerlos."),
-            ("8", "La regla de los cuatro caracteres es una aproximación y hay que "
+            ("9", "La regla de los cuatro caracteres es una aproximación y hay que "
                   "decir que lo es. El punto real es el de abajo: medir toma cinco "
                   "minutos."),
-            ("10", "Enumera en voz alta todo lo que cuenta dentro de la ventana "
+            ("11", "Enumera en voz alta todo lo que cuenta dentro de la ventana "
                    "antes de mostrar el gráfico. Casi todo el mundo asume que la "
                    "ventana es «para mi texto», y la sorpresa es el aprendizaje."),
-            ("11", "Detente en el tercer modo de fallo. Es el que no da error, no "
+            ("12", "Detente en el tercer modo de fallo. Es el que no da error, no "
                    "aparece en ninguna métrica y se lleva el presupuesto."),
-            ("13", "Cierra insistiendo en que la ventana no es memoria. Es la "
+            ("14", "Cierra insistiendo en que la ventana no es memoria. Es la "
                    "confusión más cara de las que se arrastran desde aquí."),
         ],
     },
