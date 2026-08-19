@@ -31,8 +31,8 @@ def plano_2d():
     puntos = [
         ("perro", .10, .88, ACC), ("gato", .18, .80, ACC),
         ("veterinario", .30, .62, ACC),
-        ("servidor", .86, .10, INK2), ("router", .94, .18, INK2),
-        ("centro de datos", .74, .06, INK2),
+        ("servidor", .84, .26, INK2), ("router", .96, .12, INK2),
+        ("centro de datos", .66, .05, INK2),
         ("ratón", .52, .50, DANGER),
     ]
     for nombre, fx, fy, color in puntos:

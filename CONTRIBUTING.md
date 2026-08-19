@@ -251,7 +251,18 @@ git lfs pull
 
 ```bash
 python build.py all
+python build.py layout
 ```
 
-Y una revisión rápida del PDF: que el índice tenga números de página, que
-ninguna lámina tenga texto cortado y que las listas numeradas empiecen en 1.
+`layout` revisa los PDF recién escritos y busca los dos fallos que `check` no
+puede ver, porque ninguno da error al compilar:
+
+- **Desborde vertical.** Cuando el cuerpo de una lámina no cabe, `.body` está
+  centrado y el contenido sobra por arriba y por abajo a la vez, así que acaba
+  tapando el titular. Suele pasar al juntar una tabla larga con dos recuadros.
+- **Texto sobre texto.** Dos etiquetas de un diagrama que caen encima. Los
+  separadores de sección se saltan: ahí el numeral gigante comparte sitio con
+  el titular por diseño.
+
+Y después, una revisión a ojo del PDF: que el índice tenga números de página y
+que las listas numeradas empiecen en 1.

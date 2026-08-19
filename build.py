@@ -8,6 +8,7 @@
     python build.py all             todo
     python build.py list            qué hay registrado y qué falta
     python build.py check           cobertura del temario y texto fuera de lienzo
+    python build.py layout          desborde y solapes en los PDF ya construidos
 
 Los artefactos se escriben en dist/. Nada más de este archivo necesita tocarse
 al añadir un módulo: el registro vive en content/program.py.
@@ -208,6 +209,74 @@ def cmd_svg():
     return problemas
 
 
+ALTO_PT = 190.5 * 2.8345          # la lámina, en puntos PDF
+PAD_TOP = 17 * 2.8345
+PAD_BOT = 15 * 2.8345
+BANDA_PIE = ALTO_PT - 34          # por debajo de aquí solo vive el pie
+
+
+def _sup(caja):
+    return max(0.0, caja[2] - caja[0]) * max(0.0, caja[3] - caja[1])
+
+
+def cmd_layout():
+    """Desborde vertical y solapes de texto en los PDF ya construidos.
+
+    Son los dos fallos que `check` no puede ver. El primero ocurre cuando el
+    cuerpo de una lámina no cabe: `.body` está centrado, así que el contenido
+    sobra por arriba y por abajo a la vez y acaba tapando el titular. El
+    segundo, cuando dos etiquetas de un diagrama caen encima. Ninguno da error
+    al compilar y los dos se ven fatal proyectados.
+    """
+    import fitz
+
+    desbordes = solapes = 0
+    for m in registered():
+        deck = _deck_module(m["num"])
+        if deck is None:
+            continue
+        ruta = os.path.join(DIST, deck.DECK["outfile"])
+        if not os.path.exists(ruta):
+            continue
+        doc = fitz.open(ruta)
+        for n, pg in enumerate(doc, 1):
+            texto = pg.get_text()
+            # fuera del area util
+            for blq in pg.get_text("blocks"):
+                y0, y1, txt = blq[1], blq[3], blq[4].strip()
+                if not txt or y0 > BANDA_PIE:
+                    continue
+                if y0 < PAD_TOP - 6 or y1 > ALTO_PT - PAD_BOT + 4:
+                    desbordes += 1
+                    print("     DESBORDE   %s lám %d · %s"
+                          % (deck.DECK["outfile"][:34], n,
+                             txt.replace(chr(10), " ")[:46]))
+            # texto encima de texto; en los separadores el numeral
+            # gigante comparte sitio con el titular por diseño
+            if "S E C C I" in texto:
+                continue
+            pal = [(w[:4], w[4]) for w in pg.get_text("words")
+                   if w[4].strip() and w[1] < BANDA_PIE]
+            for i in range(len(pal)):
+                for j in range(i + 1, len(pal)):
+                    a, ta = pal[i]
+                    b, tb = pal[j]
+                    if a[2] < b[0] or b[2] < a[0] or a[3] < b[1] or b[3] < a[1]:
+                        continue
+                    inter = _sup((max(a[0], b[0]), max(a[1], b[1]),
+                                  min(a[2], b[2]), min(a[3], b[3])))
+                    menor = min(_sup(a), _sup(b))
+                    if menor > 0 and inter / menor > 0.45:
+                        solapes += 1
+                        print("     SOLAPE     %s lám %d · «%s» sobre «%s»"
+                              % (deck.DECK["outfile"][:34], n, ta[:20], tb[:20]))
+
+    print()
+    print("%d bloques desbordados · %d solapes de texto"
+          % (desbordes, solapes))
+    return desbordes + solapes
+
+
 def main(argv):
     cmd = argv[0] if argv else "all"
     os.makedirs(DIST, exist_ok=True)
@@ -220,6 +289,9 @@ def main(argv):
     if cmd == "check":
         fallos = cmd_check() + cmd_svg()
         sys.exit(1 if fallos else 0)
+
+    if cmd == "layout":
+        sys.exit(1 if cmd_layout() else 0)
 
     if cmd == "syllabus":
         build_syllabus()

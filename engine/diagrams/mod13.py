@@ -269,7 +269,8 @@ def umbral():
     b.append('<circle cx="260" cy="300" r="7" fill="%s"/>' % OK)
     b.append(_txt(276, 306, "sí era relevante", 17, OK, "600"))
 
-    b.append(_rect(10, 330, 1100, 88, fill=DANGER_SOFT, stroke=DANGER, sw=2, r=12))
+    b.append(_rect(10, 326, 1100, 110, fill=DANGER_SOFT, stroke=DANGER,
+                   sw=2, r=12))
     b.append(_txt(38, 366, "Dos textos sin relación rara vez dan cero: pueden dar "
                            "0.6 o 0.7.", 20, INK, "700"))
     b.append(_txt(38, 396, "Copiar «recuperamos todo lo que supere 0.75» de un "

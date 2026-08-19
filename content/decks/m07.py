@@ -85,23 +85,18 @@ SLIDES = [
         "title": "Qué se manda y qué controla cada cosa",
         "html": """
         <table>
-          <thead><tr><th style="width:24%">Campo</th><th style="width:40%">Qué es</th>
+          <thead><tr><th style="width:22%">Campo</th><th style="width:32%">Qué es</th>
           <th>Lo que hay que saber</th></tr></thead>
           <tbody>
             <tr><td><b>modelo</b></td><td>Cuál de todos, con su versión.</td>
-              <td>Fíjalo explícitamente. Los alias que apuntan «al último» cambian
-                  el comportamiento sin avisar.</td></tr>
+              <td>Fíjalo. Los alias «al último» cambian sin avisar.</td></tr>
             <tr><td><b>mensajes</b></td><td>La lista completa, con sus roles.</td>
-              <td>Aquí va todo el estado que quieras que exista. No hay otro
-                  sitio.</td></tr>
+              <td>Todo el estado que quieras que exista. No hay otro sitio.</td></tr>
             <tr><td><b>temperatura, top-p</b></td><td>Cómo se muestrea.</td>
               <td>Ajusta una u otra, no las dos.</td></tr>
-            <tr><td><b>máximo de salida</b></td><td>Tope duro de tokens
-                  generados.</td>
-              <td>No es una sugerencia de longitud: si se alcanza, la respuesta se
-                  corta a media frase.</td></tr>
-            <tr><td><b>secuencias de parada</b></td><td>Texto que detiene la
-                  generación.</td>
+            <tr><td><b>máximo de salida</b></td><td>Tope duro de tokens generados.</td>
+              <td>No es una sugerencia: si se alcanza, corta a media frase.</td></tr>
+            <tr><td><b>secuencias de parada</b></td><td>Texto que detiene la generación.</td>
               <td>Útil con formatos propios.</td></tr>
             <tr><td><b>semilla</b></td><td>Intento de reproducibilidad.</td>
               <td>No garantiza determinismo en un servicio distribuido.</td></tr>
@@ -181,7 +176,7 @@ SLIDES = [
             compartido.</p>
           </div>
         </div>
-        <div class="box alerta" style="margin-top:7mm">
+        <div class="box danger" style="margin-top:7mm">
           <p class="lab">La política mínima</p>
           <p>Reintento con espera creciente, un tope de intentos y un
           <b>presupuesto de reintentos</b>. Un bucle de reintentos sin límite no es

@@ -183,18 +183,16 @@ SLIDES = [
         "title": "Cuatro ejes, y una decisión que cuesta revertir",
         "html": """
         <table>
-          <thead><tr><th style="width:24%">Eje</th><th style="width:38%">Qué preguntar</th>
+          <thead><tr><th style="width:20%">Eje</th><th style="width:36%">Qué preguntar</th>
           <th>Por qué importa</th></tr></thead>
           <tbody>
             <tr><td><b>Dimensiones</b></td>
               <td>¿Cuántos números por vector?</td>
-              <td>Más no es automáticamente mejor, y sí es más caro de almacenar y
-                  de buscar.</td></tr>
+              <td>Más no es mejor, y sí más caro de guardar y buscar.</td></tr>
             <tr><td><b>Idioma</b></td>
               <td>¿Con qué se entrenó?</td>
-              <td>Un modelo entrenado sobre todo en inglés agrupa peor el
-                  español.</td></tr>
-            <tr><td><b>Longitud de entrada</b></td>
+              <td>Uno entrenado en inglés agrupa peor el español.</td></tr>
+            <tr><td><b>Longitud</b></td>
               <td>¿Cuánto texto acepta de una vez?</td>
               <td>Condiciona cómo tienes que trocear el contenido.</td></tr>
             <tr><td><b>Despliegue</b></td>
@@ -202,14 +200,13 @@ SLIDES = [
               <td>Si el corpus no puede salir de casa, decide por ti.</td></tr>
           </tbody>
         </table>
-        <div class="box" style="margin-top:6mm">
-          <p><b>¿Y dónde se guardan?</b> En una base vectorial: junto a cada
-          vector se almacena el texto del que salió, porque es ese texto —y no
-          los números— lo que se acaba usando.</p>
+        <div class="box" style="margin-top:5mm">
+          <p><b>¿Y dónde se guardan?</b> En una base vectorial, y junto a cada vector
+          se almacena el texto del que salió: es ese texto —y no los números— lo que
+          se acaba usando.</p>
         </div>
-        <div class="box alerta" style="margin-top:6mm">
-          <p class="lab">Presupuéstalo antes de elegir</p>
-          <p>Cambiar de modelo no es cambiar una configuración: es <b>volver a
+        <div class="box danger" style="margin-top:5mm">
+          <p>Cambiar de modelo no es cambiar una configuración: obliga a <b>volver a
           generar todos los vectores del corpus</b>.</p>
         </div>""",
     },

@@ -10,44 +10,47 @@ from engine.diagrams.base import (
 def escalera():
     """Los cinco escalones, con su costo de iteración."""
     pasos = [
-        ("Prompt", "cambiar las instrucciones", "segundos", "total"),
-        ("Contexto", "meter la información en la petición", "minutos", "total"),
-        ("RAG", "recuperar lo relevante en automático", "días", "alta"),
-        ("Herramientas", "dejar que consulte y actúe", "días", "alta"),
-        ("Fine tuning", "modificar los pesos", "semanas", "baja"),
+        ("Prompt", ["cambiar las instrucciones"], "segundos", "total"),
+        ("Contexto", ["meter la información", "en la petición"], "minutos", "total"),
+        ("RAG", ["recuperar lo relevante", "en automático"], "días", "alta"),
+        ("Herramientas", ["dejar que consulte", "y actúe"], "días", "alta"),
+        ("Fine tuning", ["modificar los pesos"], "semanas", "baja"),
     ]
     b = [DEFS]
     n = len(pasos)
-    bw, bh, gap = 196, 62, 12
-    for i, (nombre, que, tiempo, rev) in enumerate(pasos):
+    bw, bh, gap, rise, base = 208, 86, 12, 38, 200
+    for i, (nombre, lineas, tiempo, rev) in enumerate(pasos):
         x = 10 + i * (bw + gap)
-        y = 250 - i * 44
+        y = base - i * rise
         ultimo = i == n - 1
         b.append(_rect(x, y, bw, bh, fill=ACC if ultimo else "#ffffff",
-                       stroke=ACC if ultimo else HAIR, sw=2 if ultimo else 1.5, r=10))
-        b.append(_txt(x + bw / 2.0, y + 27, nombre, 20,
+                       stroke=ACC if ultimo else HAIR,
+                       sw=2 if ultimo else 1.5, r=10))
+        b.append(_txt(x + bw / 2.0, y + 30, nombre, 20,
                       "#ffffff" if ultimo else INK, "700", "middle"))
-        b.append(_txt(x + bw / 2.0, y + 49, que, 14,
-                      "#d9ccff" if ultimo else INK3, "400", "middle"))
+        y0 = y + (58 if len(lineas) == 1 else 52)
+        for j, ln in enumerate(lineas):
+            b.append(_txt(x + bw / 2.0, y0 + j * 20, ln, 14,
+                          "#d9ccff" if ultimo else INK3, "400", "middle"))
         # peldaño
         if i < n - 1:
             b.append('<path d="M %d %d L %d %d" stroke="%s" stroke-width="2" '
                      'stroke-dasharray="4 4"/>'
-                     % (x + bw, y + bh / 2, x + bw + gap, y + bh / 2 - 44, HAIR))
-        b.append(_txt(x + bw / 2.0, y + 78, tiempo, 15, INK3, "600", "middle",
+                     % (x + bw, y + bh / 2, x + bw + gap, y + bh / 2 - rise, HAIR))
+        b.append(_txt(x + bw / 2.0, y + bh + 26, tiempo, 15, INK3, "600", "middle",
                       family=MONO))
-        b.append(_txt(x + bw / 2.0, y + 98, "reversible: " + rev, 14,
+        b.append(_txt(x + bw / 2.0, y + bh + 46, "reversible: " + rev, 14,
                       OK if rev == "total" else (INK3 if rev == "alta" else DANGER),
                       "600", "middle"))
 
-    b.append('<path d="M 20 336 L 1100 336" stroke="%s" stroke-width="2" '
+    b.append('<path d="M 20 372 L 1100 372" stroke="%s" stroke-width="2" '
              'marker-end="url(#ahp)"/>' % ACC)
-    b.append(_txt(20, 326, "más barato y más rápido de deshacer", 17, INK3, "400"))
-    b.append(_txt(1100, 326, "más caro y más difícil de deshacer", 17, ACC, "700",
+    b.append(_txt(20, 362, "más barato y más rápido de deshacer", 17, INK3, "400"))
+    b.append(_txt(1100, 362, "más caro y más difícil de deshacer", 17, ACC, "700",
                   "end"))
-    b.append(_txt(560, 378, "Se sube de escalón cuando el anterior se agotó, "
+    b.append(_txt(560, 414, "Se sube de escalón cuando el anterior se agotó, "
                             "no cuando se puso difícil.", 21, INK, "700", "middle"))
-    return _svg(398, "".join(b))
+    return _svg(434, "".join(b))
 
 
 def sabe_o_puede():

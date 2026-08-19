@@ -209,7 +209,7 @@ SLIDES = [
             concretas.</p>
           </div>
         </div>
-        <div class="box alerta" style="margin-top:7mm">
+        <div class="box danger" style="margin-top:7mm">
           <p class="lab">El anti-patrón</p>
           <p>Editar el prompt en la interfaz web de una herramienta, sin control de
           versiones, en producción. <b>Es exactamente equivalente a editar código en
@@ -282,7 +282,7 @@ SLIDES = [
             depuraciones.</li>
           <li>Lo demás se construye encima, cuando haga falta.</li>
         </ul>
-        <div class="box alerta" style="margin-top:6mm">
+        <div class="box danger" style="margin-top:6mm">
           <p>Este programa no cubre cómo <b>medir la calidad</b> de un sistema de AI.
           Una traza dice qué pasó, no si estuvo bien. Quien vaya a operar en
           producción va a necesitar eso además de esto.</p>

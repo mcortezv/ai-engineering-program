@@ -102,7 +102,7 @@ SLIDES = [
             <p>La forma no dice nada del contenido.</p>
           </div>
         </div>
-        <div class="box alerta" style="margin-top:7mm">
+        <div class="box danger" style="margin-top:7mm">
           <p class="lab">La regla que nunca se rompe</p>
           <p><b>Ninguna decisión de autorización se toma a partir de un campo que
           devolvió el modelo.</b> Si responde que el usuario es administrador, eso no

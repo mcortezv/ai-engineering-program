@@ -183,34 +183,35 @@ def tool_skill_mcp():
 def uso_herramientas():
     """El mecanismo real: el modelo no ejecuta nada."""
     pasos = [
-        ("1", "Le pasas la lista", "nombre, descripción y parámetros\nde cada herramienta"),
-        ("2", "El modelo pide", "en vez de texto, produce\n«quiero llamar a X con Y»"),
-        ("3", "TU CÓDIGO ejecuta", "el modelo se queda esperando\nsin saber qué pasa"),
-        ("4", "Devuelves el resultado", "se añade al historial y se hace\nuna petición nueva"),
-        ("5", "El modelo decide", "otra herramienta,\no responder"),
+        ("1", "Le pasas la lista", ["nombre, descripción y", "parámetros de cada una"]),
+        ("2", "El modelo pide", ["en vez de texto, produce", "«quiero llamar a X»"]),
+        ("3", "TU CÓDIGO ejecuta", ["se queda esperando,", "sin saber qué pasa"]),
+        ("4", "Devuelves el dato", ["se añade al historial", "y se pide otra vez"]),
+        ("5", "El modelo decide", ["otra herramienta,", "o responder"]),
     ]
     b = [DEFS]
-    for i, (n, t, d) in enumerate(pasos):
+    bw = 204
+    for i, (n, t, lineas) in enumerate(pasos):
         x = 10 + i * 224
         destacado = i == 2
-        b.append(_rect(x, 30, 204, 158, fill=ACC if destacado else "#ffffff",
+        b.append(_rect(x, 30, bw, 158, fill=ACC if destacado else "#ffffff",
                        stroke=ACC if destacado else HAIR,
                        sw=2 if destacado else 1.5, r=11))
-        b.append('<circle cx="%d" cy="%d" r="16" fill="%s"/>'
-                 % (x + 30, 62, "#ffffff" if destacado else ACC))
-        b.append(_txt(x + 30, 68, n, 16, ACC if destacado else "#ffffff", "700",
+        b.append('<circle cx="%d" cy="64" r="16" fill="%s"/>'
+                 % (x + 38, "#ffffff" if destacado else ACC))
+        b.append(_txt(x + 38, 70, n, 16, ACC if destacado else "#ffffff", "700",
                       "middle"))
-        b.append(_txt(x + 58, 68, t, 17, "#ffffff" if destacado else INK, "700"))
-        for j, ln in enumerate(d.split("\n")):
-            b.append(_txt(x + 22, 112 + j * 24, ln, 15,
+        b.append(_txt(x + 22, 110, t, 17, "#ffffff" if destacado else INK, "700"))
+        for j, ln in enumerate(lineas):
+            b.append(_txt(x + 22, 140 + j * 22, ln, 14,
                           "#d9ccff" if destacado else INK3, "400"))
         if i < len(pasos) - 1:
-            b.append(_arrow(x + 208, 109, x + 230, 109, INK3, 2))
+            b.append(_arrow(x + bw + 2, 108, x + bw + 20, 108, INK3, 2))
 
-    b.append(_rect(10, 214, 1100, 62, fill=DANGER_SOFT, stroke=DANGER, sw=2, r=11))
-    b.append(_txt(560, 252, "El modelo no ejecuta nada. Pide, y tu código decide si "
+    b.append(_rect(10, 206, 1100, 62, fill=DANGER_SOFT, stroke=DANGER, sw=2, r=11))
+    b.append(_txt(560, 244, "El modelo no ejecuta nada. Pide, y tu código decide si "
                             "obedece.", 21, INK, "700", "middle"))
-    b.append(_txt(560, 306, "Y cada vuelta del bucle reenvía todo el contexto "
+    b.append(_txt(560, 300, "Y cada vuelta del bucle reenvía todo el contexto "
                             "acumulado: diez pasos no cuestan diez veces uno.",
                   18, INK3, "400", "middle"))
-    return _svg(326, "".join(b))
+    return _svg(320, "".join(b))

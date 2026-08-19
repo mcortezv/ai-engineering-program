@@ -254,7 +254,7 @@ SLIDES = [
           devuelven <b>distancia</b> —más bajo es mejor—. Y algunos usan «distancia
           coseno», que es uno menos la similitud.</p>
         </div>
-        <div class="box alerta" style="margin-top:6mm">
+        <div class="box danger" style="margin-top:6mm">
           <p class="lab">La consecuencia</p>
           <p>Confundirlos hace que el sistema ordene los resultados <b>al revés</b> y
           recupere sistemáticamente lo menos parecido, <b>sin lanzar ningún
@@ -320,7 +320,7 @@ SLIDES = [
             solo los que cambiaron. La diferencia de costo es de órdenes de
             magnitud.</span></li>
         </ul>
-        <div class="box alerta" style="margin-top:7mm">
+        <div class="box danger" style="margin-top:7mm">
           <p class="lab">El bucle que vacía presupuestos</p>
           <p>Un proceso que al indexar dispara un evento que vuelve a indexar genera
           factura sin parar. <b>Detección de cambios reales y un tope por

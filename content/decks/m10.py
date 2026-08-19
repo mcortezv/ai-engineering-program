@@ -245,7 +245,7 @@ SLIDES = [
             <div class="d">Da un lugar donde ponerla. Cada servidor conectado es
             superficie de ataque nueva.</div></div>
         </div>
-        <div class="box alerta" style="margin-top:7mm">
+        <div class="box danger" style="margin-top:7mm">
           <p class="lab">La regla que hay que llevarse</p>
           <p>Todo lo que devuelve una herramienta <b>entra a tu contexto como texto
           que el modelo va a leer</b>. Conectar un servidor de terceros es darle
